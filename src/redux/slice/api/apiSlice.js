@@ -1,7 +1,5 @@
-import { getBaseUrl } from "@/helpers/config/envConfig";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-
+import { getBaseUrl } from "../../../helpers/config/envConfig";
 
 export const api = createApi({
   reducerPath: "api",
