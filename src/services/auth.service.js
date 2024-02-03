@@ -1,10 +1,9 @@
-import { authKey, role } from "@/constants/authKey";
-import { decodedToken } from "@/helpers/utils/jwt";
+import { authKey, role } from "../constants/authKey";
+import { decodedToken } from "../helpers/utils/jwt";
 import {
   getFromLocalStorage,
-
   setToLocalStorage,
-} from "@/helpers/utils/saveData";
+} from "../helpers/utils/saveData";
 
 export const storeUserInfo = (verify) => {
   return setToLocalStorage(authKey, verify);

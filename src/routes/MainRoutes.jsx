@@ -5,6 +5,7 @@ const MainRoutes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    children: [],
   },
 ]);
 export default MainRoutes;
