@@ -1,10 +1,12 @@
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
-import { Button } from "antd";
+
+import MainRoutes from "./routes/MainRoutes";
 
 function App() {
   return (
     <>
-      <Button type="primary">Button</Button>
+      <RouterProvider router={MainRoutes} />
     </>
   );
 }

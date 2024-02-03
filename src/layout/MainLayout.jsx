@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Layout } from "antd";
-import Header from "../components/common/Header";
-import { Footer } from "antd/es/layout/layout";
+
 import { Outlet } from "react-router-dom";
+import Header from "../components/shared/Header";
+import Footer from "../components/shared/Footer";
 
 const { Content } = Layout;
 
