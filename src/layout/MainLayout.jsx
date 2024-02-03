@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import { Layout } from "antd";
+import Header from "../components/common/Header";
 
 const { Content } = Layout;
 

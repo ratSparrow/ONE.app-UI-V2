@@ -1,6 +1,12 @@
+import { Link, Navigate } from "react-router-dom";
 import { authKey, role } from "../../constants/authKey";
-import { getUserInfo, removeUserInfo, removeUserRoleInfo } from "../../services/auth.service";
-
+import { ExportOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  getUserInfo,
+  removeUserInfo,
+  removeUserRoleInfo,
+} from "../../services/auth.service";
+import { Avatar, Button } from "antd";
 
 const Header = () => {
   const loggedInUser = getUserInfo();
@@ -9,7 +15,7 @@ const Header = () => {
   const handleLogout = () => {
     removeUserInfo(authKey);
     removeUserRoleInfo(role);
-    router.push("/login");
+    <Navigate to="/login" state={{ from: location }} replace />;
   };
   return (
     <div style={{ backgroundColor: "#6B5B95" }}>
@@ -26,7 +32,7 @@ const Header = () => {
         }}
       >
         <div>
-          <Link href="/">
+          <Link to="/">
             <div
               style={{
                 fontFamily: "sans-serif",
@@ -47,7 +53,7 @@ const Header = () => {
               <div
                 style={{
                   fontSize: "24px",
-                  borderRadius: "",
+
                   display: "inline-block",
                   width: "4px",
                   height: "4px",
