@@ -1,4 +1,6 @@
-import { Input, Select } from "antd";
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import { Select } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 
 const FormSelectField = ({
