@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useGetAllSubServicesQuery } from "../../redux/slice/api/subServiceApi";
 import { useGetAllEventsQuery } from "../../redux/slice/api/eventApi";
 import AllSubServices from "../../components/home/sub-services/AllSubService";
+import ChooseUs from "../static/ChooseUs";
 
 
 export default function HomePage() {
