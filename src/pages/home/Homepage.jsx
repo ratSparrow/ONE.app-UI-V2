@@ -1,5 +1,6 @@
 import { Spin } from "antd";
 import HeroCarousel from "../../ui/carousel/HeroCarousel";
+import Services from "../../components/home/services/Services";
 
 
 export default function HomePage() {
