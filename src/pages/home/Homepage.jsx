@@ -8,6 +8,10 @@ import { useGetAllSubServicesQuery } from "../../redux/slice/api/subServiceApi";
 import { useGetAllEventsQuery } from "../../redux/slice/api/eventApi";
 import AllSubServices from "../../components/home/sub-services/AllSubService";
 import ChooseUs from "../static/ChooseUs";
+import AllEvents from "../events/AllEvents";
+import CallUs from "../static/CallUs";
+import UpcomingService from "../../components/home/upcoming-service/UpcomingService";
+import AllBlogs from "../blogs/AllBlogs";
 
 
 export default function HomePage() {
