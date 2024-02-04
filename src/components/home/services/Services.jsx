@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
 
-import { Card, Col, Row, Spin } from "antd";
+import { Card, Col, Row } from "antd";
 const { Meta } = Card;
 
 const Services = ({ services, showModal }) => {
@@ -34,15 +34,11 @@ const Services = ({ services, showModal }) => {
                   marginBottom: "8px",
                 }}
                 cover={
-                  !service.image ? (
-                    <Spin />
-                  ) : (
-                    <img
-                      alt=""
-                      src={service.image}
-                      style={{ maxWidth: "400px", height: "170px" }}
-                    />
-                  )
+                  <img
+                    alt=""
+                    src={service.image}
+                    style={{ maxWidth: "400px", height: "170px" }}
+                  />
                 }
               >
                 <Meta title={service.name} />

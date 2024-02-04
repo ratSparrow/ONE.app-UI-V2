@@ -5,14 +5,9 @@ import Sider from "antd/es/layout/Sider";
 import { Content } from "antd/es/layout/layout";
 import { useEffect, useState } from "react";
 import ServiceModalList from "../services/ServiceModalList";
-import getBaseUrl from "../../../helpers/config/envConfig";
+import { getBaseUrl } from "../../../helpers/config/envConfig";
 
-const SubService = ({
-  handleCancel,
-  handleOk,
-  isModalOpen,
-  services,
-}) => {
+const SubService = ({ handleCancel, handleOk, isModalOpen, services }) => {
   const [selectedValue, setSelectedValue] = useState(null);
   const [serviceId, setServiceId] = useState(null);
   const [subCategory, setSubCategory] = useState([]);
