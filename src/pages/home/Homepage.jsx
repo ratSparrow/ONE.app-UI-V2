@@ -1,11 +1,16 @@
+/* eslint-disable no-unused-vars */
 import { Spin } from "antd";
 import HeroCarousel from "../../ui/carousel/HeroCarousel";
 import Services from "../../components/home/services/Services";
+import SubService from "../../components/home/sub-services/SubServices";
+import { useState } from "react";
+import { useGetAllSubServicesQuery } from "../../redux/slice/api/subServiceApi";
+import { useGetAllEventsQuery } from "../../redux/slice/api/eventApi";
 
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { data, isLoading: serviceLoading } = useGetAllServicesQuery();
+  const { data, isLoading: serviceLoading } = useGetAllSubServicesQuery();
   const { data: subService, isLoading: subServiceLoading } =
     useGetAllSubServicesQuery();
   const { data: events, isLoading: eventLoading } = useGetAllEventsQuery();
@@ -49,7 +54,7 @@ export default function HomePage() {
         <>
           <HeroCarousel />
           <Services services={services} showModal={showModal} />
-          <SubCategoryService
+          <SubService
             isModalOpen={isModalOpen}
             handleOk={handleOk}
             handleCancel={handleCancel}

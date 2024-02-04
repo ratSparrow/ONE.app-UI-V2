@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import ServiceModalList from "../services/ServiceModalList";
 import getBaseUrl from "../../../helpers/config/envConfig";
 
-const SubCategoryService = ({
+const SubService = ({
   handleCancel,
   handleOk,
   isModalOpen,
@@ -124,4 +124,4 @@ const SubCategoryService = ({
   );
 };
 
-export default SubCategoryService;
+export default SubService;
