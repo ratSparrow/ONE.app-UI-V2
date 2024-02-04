@@ -12,6 +12,7 @@ import AllEvents from "../events/AllEvents";
 import CallUs from "../static/CallUs";
 import UpcomingService from "../../components/home/upcoming-service/UpcomingService";
 import AllBlogs from "../blogs/AllBlogs";
+import Feedback from "../../components/home/feedback/Feedback";
 
 
 export default function HomePage() {
