@@ -1,18 +1,15 @@
-
 import { Alert, Col, Row, Spin, Typography } from "antd";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import {
-  useUserLoginMutation,
-  useUserSignupMutation,
-} from "../../redux/slice/api/userApi";
-import { storeUserInfo } from "../../services/auth.service";
+import { useUserLoginMutation } from "../../redux/slice/api/userApi";
+import { storeUserInfo, storeUserRole } from "../../services/auth.service";
+import { ADMIN, USER } from "../../constants/user-constant";
 import { Link, Navigate } from "react-router-dom";
 import "../css/SignUp.css";
 
 const { Text } = Typography;
 
-const SignUp = () => {
+const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -20,39 +17,42 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
+
     formState: { errors },
   } = useForm();
-  const [userSignUp] = useUserSignupMutation();
+
   const [userLogin] = useUserLoginMutation();
 
   const onSubmit = async (data) => {
-    setLoading(true);
-
     try {
-      const res = await userSignUp(data);
-      if (res.data.statusCode === 200) {
-        const res = await userLogin(data);
-        if (res.data.statusCode === 200) {
-          const { accessToken, role, email } = res.data.data;
-          storeUserInfo(accessToken, role, email);
-          setSuccessMessage(res.message);
-          if (accessToken) {
-            <Navigate to="/user-profile" state={{ from: location }} replace />;
-          } else {
-            <Navigate to="/login" state={{ from: location }} replace />;
-          }
+      setLoading(true);
+      const res = await userLogin(data);
 
-          setLoading(false);
-          return <Alert message={res.message} type="success" />;
+      if (res.data.statusCode === 200) {
+        const { accessToken, role } = res.data.data;
+
+        storeUserInfo(accessToken);
+        storeUserRole(role);
+        // console.log(res.data.data);
+        setSuccessMessage(res.message);
+        if (role === USER) {
+          <Navigate to="/user-profile" state={{ from: location }} replace />;
+        } else if (role === ADMIN) {
+          <Navigate to="/admin" state={{ from: location }} replace />;
+        } else {
+          <Navigate to="/super-admin" state={{ from: location }} replace />;
         }
+
+        setLoading(false);
+        return <Alert message={res.message} type="success" />;
       }
     } catch (error) {
+      console.log(error);
       <Alert message={error.message} type="error" />;
       setErrorMessage(error.message);
       setLoading(false);
     }
   };
-
   return (
     <section>
       <Row justify="space-between">
@@ -103,7 +103,7 @@ const SignUp = () => {
                     margin: "auto",
                     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
                     padding: "16px 20px",
-                    borderRadius: 8,
+                    borderRadius: "8px",
                   }}
                 >
                   <Typography
@@ -115,7 +115,7 @@ const SignUp = () => {
                       paddingBottom: 16,
                     }}
                   >
-                    <span style={{ borderBottom: "2px solid" }}> SIGN UP</span>
+                    <span style={{ borderBottom: "2px solid" }}> SIGN IN</span>
                   </Typography>
 
                   <form onSubmit={handleSubmit(onSubmit)}>
@@ -134,7 +134,7 @@ const SignUp = () => {
                       })}
                       placeholder="Enter Email "
                       style={{
-                        marginBottom: 12,
+                        marginBottom: 14,
                         width: "100%",
                         height: "24px",
                         borderRadius: "4px",
@@ -155,7 +155,7 @@ const SignUp = () => {
                       {...register("password", { required: true })}
                       placeholder="Enter Password"
                       style={{
-                        marginBottom: 12,
+                        marginBottom: 14,
                         width: "100%",
                         height: "24px",
                         borderRadius: "4px",
@@ -164,71 +164,35 @@ const SignUp = () => {
                       className="customInput"
                     />
                     {errors.exampleRequired && <span>Password Required</span>}
-                    <label
-                      style={{
-                        fontSize: 14,
-                        fontWeight: 600,
-                        color: "#6E58D8",
-                      }}
-                    >
-                      Phone{" "}
-                    </label>
+
                     <input
-                      {...register("phoneNumber")}
-                      placeholder="Enter Phone Number"
                       style={{
-                        marginBottom: 12,
-                        width: "100%",
-                        height: "24px",
-                        borderRadius: "4px",
+                        backgroundColor: "#059862",
+                        border: "none",
+                        color: "white",
+                        padding: 8,
+                        marginTop: 8,
+                        marginBottom: 8,
+                        fontSize: 14,
+                        borderRadius: 6,
+                        width: 100,
                       }}
-                      type="text"
-                      className="customInput"
+                      className="formBtn"
+                      type="submit"
                     />
 
-                    {loading === true ? (
-                      <Spin
-                        style={{ padding: 8 }}
-                        tip="Progressing"
-                        size="small"
-                      >
-                        <div className="content" />
-                      </Spin>
-                    ) : (
-                      <input
-                        style={{
-                          backgroundColor: "#059862",
-                          border: "none",
-                          color: "white",
-                          padding: 8,
-                          marginTop: 8,
-                          marginBottom: 8,
-                          fontSize: 14,
-                          borderRadius: 6,
-                          width: 100,
-                        }}
-                        className="formBtn"
-                        type="submit"
-                      />
-                    )}
                     {errorMessage ? (
-                      <Text
-                        style={{ display: "inline-block", padding: "8px" }}
-                        type="danger"
-                      >
+                      <Text style={{ padding: "8px" }} type="danger">
                         {errorMessage}
                       </Text>
                     ) : (
-                      <Text
-                        style={{ display: "inline-block", padding: "8px" }}
-                        type="success"
-                      >
+                      <Text style={{ padding: "8px" }} type="success">
                         {successMessage}
                       </Text>
                     )}
-                    <Link style={{ textDecoration: "none" }} to="/login">
+                    <Link style={{ textDecoration: "none" }} href="/signup">
                       <Typography className="formText">
-                        Already have an account? Sign In
+                        Not Have an Account? Sign Up
                       </Typography>{" "}
                     </Link>
                   </form>
@@ -242,4 +206,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;
