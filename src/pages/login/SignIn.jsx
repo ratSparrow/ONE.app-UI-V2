@@ -190,7 +190,7 @@ const SignIn = () => {
                         {successMessage}
                       </Text>
                     )}
-                    <Link style={{ textDecoration: "none" }} href="/signup">
+                    <Link style={{ textDecoration: "none" }} href="/sign-up">
                       <Typography className="formText">
                         Not Have an Account? Sign Up
                       </Typography>{" "}
