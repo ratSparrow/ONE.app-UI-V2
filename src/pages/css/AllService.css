@@ -1,0 +1,17 @@
+.serviceContainer {
+    border-right: 4px solid black;
+}
+
+.serviceList {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.serviceList:hover {
+    background-color: darkgray;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 4px;
+    color: whitesmoke;
+}

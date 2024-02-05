@@ -1,4 +1,4 @@
-import { api } from "../api/apiSlice";
+import { api } from "./apiSlice";
 
 const subCategoryApi = api.injectEndpoints({
   endpoints: (builder) => ({
