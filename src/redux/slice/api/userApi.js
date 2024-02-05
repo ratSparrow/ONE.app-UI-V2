@@ -70,6 +70,7 @@ const userApi = api.injectEndpoints({
       query: (data) => ({
         url: `/api/v1/users/update-my-profile`,
         method: "PATCH",
+        body: data,
         headers: headers,
       }),
       providesTags: ["users"],

@@ -11,6 +11,14 @@ const MainRoutes = createBrowserRouter([
         path: "/",
         element: <HomePage />,
       },
+      {
+        path: "/login",
+        element: <HomePage />,
+      },
+      {
+        path: "/login",
+        element: <HomePage />,
+      },
     ],
   },
 ]);
