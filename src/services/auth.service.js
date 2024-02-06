@@ -1,4 +1,4 @@
-import { authKey, role } from "../constants/authKey";
+import { authKey, role } from "../constants/common/authKey";
 import { decodedToken } from "../helpers/utils/jwt";
 import {
   getFromLocalStorage,
