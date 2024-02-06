@@ -1,5 +1,5 @@
 import { Link, Navigate } from "react-router-dom";
-import { authKey, role } from "../../constants/authKey";
+import { authKey, role } from "../../constants/common/authKey";
 import { ExportOutlined, UserOutlined } from "@ant-design/icons";
 import {
   getUserInfo,

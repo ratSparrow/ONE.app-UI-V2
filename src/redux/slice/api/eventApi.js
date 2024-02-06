@@ -1,5 +1,5 @@
 import { api } from "../api/apiSlice";
-import { authKey } from "../../../constants/authKey";
+import { authKey } from "../../../constants/common/authKey";
 import { getFromLocalStorage } from "../../../helpers/utils/saveData";
 
 const token = getFromLocalStorage(authKey);
