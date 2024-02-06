@@ -3,9 +3,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useUserLoginMutation } from "../../redux/slice/api/userApi";
 import { storeUserInfo, storeUserRole } from "../../services/auth.service";
-import { ADMIN, USER } from "../../constants/user-constant";
+
 import { Link, Navigate } from "react-router-dom";
 import "../css/SignUp.css";
+import { ADMIN, USER } from "../../constants/common/user-constant";
 
 const { Text } = Typography;
 
