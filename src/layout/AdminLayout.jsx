@@ -1,10 +1,8 @@
-/* eslint-disable react/prop-types */
-
 import { Layout, Menu } from "antd";
 import { isLoggedIn, isRole } from "../services/auth.service";
 import { useEffect, useState } from "react";
 import { ADMIN } from "../constants/common/user-constant";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { AdminSidebarItems } from "../constants/admin/AdminSidebarItems";
 
 const { Sider, Content } = Layout;
@@ -23,7 +21,7 @@ const { Sider, Content } = Layout;
 //   getItem("Files", "9", <FileOutlined />),
 // ];
 
-const AdminLayout = ({ children }) => {
+const AdminLayout = () => {
   const loggedInUser = isLoggedIn();
   const loggedInUserRole = isRole();
 
@@ -46,7 +44,7 @@ const AdminLayout = ({ children }) => {
               backgroundColor: "#E7E9EB",
             }}
           >
-            {children}
+            <Outlet />
           </Content>
           <Sider
             style={{
