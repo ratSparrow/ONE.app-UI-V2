@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Input, Typography } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 
@@ -6,9 +7,9 @@ const FormInput = ({
   type,
   size,
   value,
-  id,
+
   placeholder,
-  validation,
+
   label,
   defaultValue,
 }) => {
