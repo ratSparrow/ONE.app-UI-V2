@@ -1,41 +1,28 @@
-import { Layout, Menu } from "antd";
+import { useState } from "react";
 import { isLoggedIn, isRole } from "../services/auth.service";
-import { useEffect, useState } from "react";
-import { ADMIN } from "../constants/common/user-constant";
+import { useEffect } from "react";
+import { SUPER_ADMIN } from "../constants/common/user-constant";
 import { Navigate, Outlet } from "react-router-dom";
-import { AdminSidebarItems } from "../constants/user/AdminSidebarItems";
+import { Layout, Menu } from "antd";
+import { Content } from "antd/es/layout/layout";
+import Sider from "antd/es/layout/Sider";
+import SuperAdminSidebarItems from "../constants/user/SuperAdminSidebarItems";
 
-
-const { Sider, Content } = Layout;
-// function getItem(label, key, icon, children) {
-//   return {
-//     key,
-//     icon,
-//     children,
-//     label,
-//   };
-// }
-
-// const items = [
-//   getItem("Option 1", "1", <PieChartOutlined />),
-//   getItem("Option 2", "2", <DesktopOutlined />),
-//   getItem("Files", "9", <FileOutlined />),
-// ];
-
-const AdminLayout = () => {
+const SuperAdminLayout = () => {
   const loggedInUser = isLoggedIn();
   const loggedInUserRole = isRole();
 
   const [isLoading, setIsLoading] = useState(false);
+  console.log(loggedInUserRole);
 
   useEffect(() => {
-    if (!loggedInUser || loggedInUserRole !== ADMIN) {
+    if (!loggedInUser || loggedInUserRole !== SUPER_ADMIN) {
       <Navigate to="/login" state={{ from: location }} replace />;
     }
     setIsLoading(true);
   }, [isLoading]);
 
-  const role = "admin";
+  const role = "super_admin";
   return (
     <div>
       <Layout>
@@ -60,13 +47,13 @@ const AdminLayout = () => {
             <h1
               style={{ color: "white", textAlign: "center", padding: "16px 0" }}
             >
-              ADMIN PANEL
+              SUPER ADMIN PANEL
             </h1>
             <Menu
               theme="dark"
               defaultSelectedKeys={["profile"]}
               mode="inline"
-              items={AdminSidebarItems(role)}
+              items={SuperAdminSidebarItems(role)}
             />
           </Sider>
         </Layout>
@@ -75,4 +62,4 @@ const AdminLayout = () => {
   );
 };
 
-export default AdminLayout;
+export default SuperAdminLayout;
