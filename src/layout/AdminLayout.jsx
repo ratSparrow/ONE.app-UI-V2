@@ -1,10 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Layout, Menu } from "antd";
 import { isLoggedIn, isRole } from "../services/auth.service";
 import { useEffect, useState } from "react";
 import { ADMIN } from "../constants/common/user-constant";
 import { Navigate, Outlet } from "react-router-dom";
 import { AdminSidebarItems } from "../constants/user/AdminSidebarItems";
-
 
 const { Sider, Content } = Layout;
 // function getItem(label, key, icon, children) {
