@@ -7,7 +7,8 @@ import { Navigate, Outlet } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import { Content } from "antd/es/layout/layout";
 import Sider from "antd/es/layout/Sider";
-import SuperAdminSidebarItems from "../constants/user/SuperAdminSidebarItems";
+import SuperAdminSidebarItems from "../constants/layout-item/SuperAdminSidebarItems";
+
 
 const SuperAdminLayout = () => {
   const loggedInUser = isLoggedIn();

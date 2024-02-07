@@ -4,7 +4,8 @@ import { isLoggedIn, isRole } from "../services/auth.service";
 import { useEffect, useState } from "react";
 import { ADMIN } from "../constants/common/user-constant";
 import { Navigate, Outlet } from "react-router-dom";
-import { AdminSidebarItems } from "../constants/user/AdminSidebarItems";
+import SuperAdminSidebarItems from "../constants/layout-item/SuperAdminSidebarItems";
+
 
 const { Sider, Content } = Layout;
 // function getItem(label, key, icon, children) {
@@ -66,7 +67,7 @@ const AdminLayout = () => {
               theme="dark"
               defaultSelectedKeys={["profile"]}
               mode="inline"
-              items={AdminSidebarItems(role)}
+              items={SuperAdminSidebarItems(role)}
             />
           </Sider>
         </Layout>
