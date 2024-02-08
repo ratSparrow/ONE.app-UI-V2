@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import { FormProvider, useForm } from "react-hook-form";
 
-const Form = ({ children, submitHandler, defaultValues }) => {
+const CustomForm = ({ children, submitHandler, defaultValues }) => {
   const formConfig = {};
   if (!!defaultValues) formConfig["defaultValues"] = defaultValues;
 
@@ -21,4 +21,4 @@ const Form = ({ children, submitHandler, defaultValues }) => {
   );
 };
 
-export default Form;
+export default CustomForm;

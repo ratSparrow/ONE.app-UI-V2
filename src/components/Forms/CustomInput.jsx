@@ -2,7 +2,7 @@
 import { Input, Typography } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 
-const FormInput = ({
+const CustomInput = ({
   name,
   type,
   size,
@@ -39,4 +39,4 @@ const FormInput = ({
   );
 };
 
-export default FormInput;
+export default CustomInput;
