@@ -1,3 +1,8 @@
+import { HomeOutlined } from "@ant-design/icons";
+import { Breadcrumb, Spin } from "antd";
+import { Link } from "react-router-dom";
+import Loading from "../../ui/common/Loading";
+import { useGetUserProfileQuery } from "../../redux/slice/api/userApi";
 
 
 const AdminPage = () => {
@@ -16,7 +21,7 @@ const AdminPage = () => {
           items={[
             {
               title: (
-                <Link href="/">
+                <Link to="/">
                   <HomeOutlined />
                 </Link>
               ),
