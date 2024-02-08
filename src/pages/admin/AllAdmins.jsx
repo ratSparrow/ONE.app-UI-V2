@@ -3,6 +3,7 @@ import { Breadcrumb, Spin } from "antd";
 import { Link } from "react-router-dom";
 import Loading from "../../ui/common/Loading";
 import { useGetUserProfileQuery } from "../../redux/slice/api/userApi";
+import Profile from "../../components/user/Profile";
 
 
 const AdminPage = () => {
@@ -53,6 +54,3 @@ const AdminPage = () => {
 
 export default AdminPage;
 
-AdminPage.getLayout = function getLayout(page) {
-  return <AdminLayout>{page}</AdminLayout>;
-};
