@@ -3,7 +3,7 @@
 import { Select } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 
-const FormSelectField = ({
+const CustomSelectedField = ({
   name,
   type,
   size,
@@ -71,4 +71,4 @@ const FormSelectField = ({
   );
 };
 
-export default FormSelectField;
+export default CustomSelectedField;

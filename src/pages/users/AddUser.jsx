@@ -1,8 +1,9 @@
-import { Form, Link, Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useUserSignupMutation } from "../../redux/slice/api/userApi";
 import { Breadcrumb, Button, Col, Row, Typography } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
-import FormInput from "../../components/forms/FormInput";
+import CustomInput from "../../components/forms/CustomInput";
+import CustomForm from "../../components/forms/CustomForm";
 
 const AddUser = () => {
   const [userSignup] = useUserSignupMutation();
@@ -45,7 +46,7 @@ const AddUser = () => {
             Create User
           </Typography>
         </div>
-        <Form submitHandler={onSubmit}>
+        <CustomForm submitHandler={onSubmit}>
           <div
             style={{
               border: "1px solid #d9d9d9",
@@ -56,7 +57,7 @@ const AddUser = () => {
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="name.firstName"
                   label="First Name"
                   type="text"
@@ -66,7 +67,7 @@ const AddUser = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="name.lastName"
                   label="Last Name"
                   type="text"
@@ -76,7 +77,7 @@ const AddUser = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="email"
                   label="Email"
                   type="email"
@@ -86,7 +87,7 @@ const AddUser = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="address"
                   label="Address"
                   type="text"
@@ -96,7 +97,7 @@ const AddUser = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="phoneNumber"
                   label="Phone"
                   type="text"
@@ -106,7 +107,7 @@ const AddUser = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="password"
                   label="Password"
                   type="password"
@@ -116,7 +117,7 @@ const AddUser = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="profileImg"
                   label="Image"
                   type="text"
@@ -134,7 +135,7 @@ const AddUser = () => {
               Create
             </Button>
           </div>
-        </Form>
+        </CustomForm>
       </div>
     </div>
   );
