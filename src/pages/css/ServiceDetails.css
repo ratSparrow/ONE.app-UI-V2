@@ -1,0 +1,50 @@
+.mainContainer {
+    position: relative
+}
+
+.contentImage {
+    width: 100%;
+    height: 600px;
+    filter: blur(2px);
+}
+
+.headerContent {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    color: white;
+    font-size: 36px;
+    font-weight: 900;
+
+}
+
+.mainDetails {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.itemsContainer {
+    background-color: blueviolet;
+    opacity: 0.9;
+    margin-top: 24px;
+}
+
+.cardModalBtn {
+    background-color: white;
+    color: black;
+    margin: 8px;
+    font-weight: 500;
+    font-family: "serif";
+    font-size: 14px;
+    border-radius: 6;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.cardModalBtn:hover {
+    font-size: 16px;
+    font-weight: 600;
+}
