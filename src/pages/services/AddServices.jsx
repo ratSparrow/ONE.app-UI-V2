@@ -1,4 +1,10 @@
-
+import { Alert, Breadcrumb, Button, Col, Row, Typography } from "antd";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useAddServicesMutation } from "../../redux/slice/api/servicesApi";
+import { HomeOutlined } from "@ant-design/icons";
+import CustomForm from "../../components/forms/CustomForm";
+import CustomInput from "../../components/forms/CustomInput";
 
 const AddService = () => {
   const [addServices] = useAddServicesMutation();
@@ -19,7 +25,7 @@ const AddService = () => {
           items={[
             {
               title: (
-                <Link href="/">
+                <Link to="/">
                   <HomeOutlined />
                 </Link>
               ),
@@ -39,7 +45,7 @@ const AddService = () => {
             Create Service
           </Typography>
         </div>
-        <Form submitHandler={onSubmit}>
+        <CustomForm submitHandler={onSubmit}>
           <div
             style={{
               border: "1px solid #d9d9d9",
@@ -50,7 +56,7 @@ const AddService = () => {
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="name"
                   label="Service Name"
                   type="text"
@@ -60,7 +66,7 @@ const AddService = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="image"
                   label="Image"
                   type="string"
@@ -78,7 +84,7 @@ const AddService = () => {
               Create
             </Button>
           </div>
-        </Form>
+        </CustomForm>
       </div>
       {message && (
         <Alert style={{ margin: 16 }} message={message} type="success" />
@@ -88,7 +94,3 @@ const AddService = () => {
 };
 
 export default AddService;
-
-AddService.getLayout = function getLayout(page) {
-  return <AdminLayout>{page}</AdminLayout>;
-};
