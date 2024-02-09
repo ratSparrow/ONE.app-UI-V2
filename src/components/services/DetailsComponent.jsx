@@ -3,9 +3,14 @@ import { useState } from "react";
 import { format } from "date-fns";
 import "../../pages/css/ServiceDetails.css"
 import { Button, Card, Col, Row, Typography } from "antd";
-import { RightOutlined } from "@ant-design/icons";
+import {
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  RightOutlined,
+} from "@ant-design/icons";
+import SubServiceModal from "../modal/SubServiceModal";
 
-const ServiceDetails = ({ detailsService, packages }) => {
+const DetailsComponent = ({ detailsService, packages }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const originalDateStr = detailsService.createdAt;
   const date = new Date(originalDateStr);
@@ -361,4 +366,4 @@ const ServiceDetails = ({ detailsService, packages }) => {
   );
 };
 
-export default ServiceDetails;
+export default DetailsComponent;

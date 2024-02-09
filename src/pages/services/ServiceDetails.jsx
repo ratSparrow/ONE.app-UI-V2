@@ -5,15 +5,13 @@ import { useGetSingleSubCategoryServiceQuery } from "../../redux/slice/api/subCa
 import Loading from "../../ui/common/Loading";
 import "../css/ServiceDetails.css"
 import HeroServiceDetails from "../../components/services/HeroServiceDetails";
-
+import DetailsComponent from "../../components/services/DetailsComponent";
 
 const ServiceDetailsPage = () => {
-    const {id} = useParams()
+  const { id } = useParams();
   const [packages, setPackages] = useState([]);
 
-
-    const [loading, setLoading] = useState(false);
-
+  const [loading, setLoading] = useState(false);
 
   const url = `${getBaseUrl()}/api/v1/packages/subServiceId/${id}`;
 
@@ -39,7 +37,7 @@ const ServiceDetailsPage = () => {
   return (
     <div className="mainContainer">
       <HeroServiceDetails detailsService={detailsService} />
-      <ServiceDetails detailsService={detailsService} packages={packages} />
+      <DetailsComponent detailsService={detailsService} packages={packages} />
     </div>
   );
 };
