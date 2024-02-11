@@ -2,6 +2,7 @@ import { Breadcrumb, Button, Spin, Table } from "antd";
 import { useGetAllSubCategoryServiceQuery } from "../../redux/slice/api/subCategorySlice";
 import { Link } from "react-router-dom";
 import { HomeOutlined } from "@ant-design/icons";
+import SubCategoryTableColumn from "../../constants/services/SubCategoryTableItem";
 
 const ViewSubCategory = () => {
   const { data, isLoading } = useGetAllSubCategoryServiceQuery();
@@ -44,7 +45,7 @@ const ViewSubCategory = () => {
       )}
       <Table
         style={{ maxWidth: 800, margin: "0 auto" }}
-        columns={SubCategoryServiceColumn()}
+        columns={SubCategoryTableColumn()}
         dataSource={data?.data}
       />
     </div>
