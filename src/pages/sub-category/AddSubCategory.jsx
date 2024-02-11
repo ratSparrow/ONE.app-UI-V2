@@ -1,7 +1,12 @@
-
+import { Breadcrumb, Col, Row, Spin } from "antd";
+import { useGetAllSubServicesQuery } from "../../redux/slice/api/subServiceApi";
+import { Link } from "react-router-dom";
+import { HomeOutlined } from "@ant-design/icons";
+import CustomForm from "../../components/forms/CustomForm";
+import CustomSelectedField from "../../components/forms/CustomSelectField";
 
 const AddSubCategory = () => {
-  const { data, isLoading } = useGetAllServicesQuery();
+  const { data, isLoading } = useGetAllSubServicesQuery();
   if (isLoading) {
     return (
       <Spin
@@ -23,7 +28,7 @@ const AddSubCategory = () => {
           items={[
             {
               title: (
-                <Link href="/">
+                <Link to="/">
                   <HomeOutlined />
                 </Link>
               ),
@@ -32,16 +37,16 @@ const AddSubCategory = () => {
               title: "Sub Category",
             },
             {
-              title: <Link href="/sub-category/add">Add Sub Category</Link>,
+              title: <Link to="/sub-category/add">Add Sub Category</Link>,
             },
           ]}
         />
       </div>
-      <Form>
+      <CustomForm>
         <div>
           <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             <Col className="gutter-row" span={24}>
-              <FormSelectField
+              <CustomSelectedField
                 lable="Category"
                 size="small"
                 name="category"
@@ -51,13 +56,9 @@ const AddSubCategory = () => {
             </Col>
           </Row>
         </div>
-      </Form>
+      </CustomForm>
     </div>
   );
 };
 
 export default AddSubCategory;
-
-AddSubCategory.getLayout = function getLayout(page) {
-  return <AdminLayout>{page}</AdminLayout>;
-};
