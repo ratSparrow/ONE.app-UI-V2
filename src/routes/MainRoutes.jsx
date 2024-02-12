@@ -22,7 +22,7 @@ const MainRoutes = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "/login",
+        path: "/sign-in",
         element: <SignIn />,
       },
       {

@@ -101,13 +101,13 @@ const Header = () => {
               {" "}
               <Link
                 style={{ fontSize: 16, color: "white", paddingRight: "8px" }}
-                href="/signup"
+                to="/sign-up"
               >
                 Sign Up
               </Link>
               <Link
                 style={{ fontSize: 16, color: "white", paddingRight: "8px" }}
-                href="/login"
+                to="/sign-in"
               >
                 Sign In
               </Link>
@@ -115,11 +115,11 @@ const Header = () => {
           )}
           <div>
             {loggedInUser === "user" ? (
-              <Link href="/user-profile">
+              <Link to="/user-profile">
                 <Avatar size="large" icon={<UserOutlined />} />
               </Link>
             ) : (
-              <Link href="/admin">
+              <Link to="/admin">
                 <Avatar size="large" icon={<UserOutlined />} />
               </Link>
             )}
