@@ -8,6 +8,9 @@ import AdminLayout from "../layout/AdminLayout";
 import AddUser from "../pages/users/AddUser";
 import AllService from "../pages/services/AllServices";
 
+import Admin from "../pages/admin/Admin";
+import EditAdmin from "../pages/admin/EditAdmin";
+
 const MainRoutes = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +38,11 @@ const MainRoutes = createBrowserRouter([
     path: "/",
     element: <AdminLayout />,
     children: [
+      {
+        path: "/admin",
+        element: <Admin />,
+      },
+
       {
         path: "/admin/add-user",
         element: <AddUser />,
