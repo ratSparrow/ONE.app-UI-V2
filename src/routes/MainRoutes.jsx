@@ -42,7 +42,10 @@ const MainRoutes = createBrowserRouter([
         path: "/admin",
         element: <Admin />,
       },
-
+      {
+        path: "/admin/edit",
+        element: <EditAdmin />,
+      },
       {
         path: "/admin/add-user",
         element: <AddUser />,
