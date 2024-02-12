@@ -3,9 +3,10 @@ import MainLayout from "../layout/MainLayout";
 import HomePage from "../pages/home/Homepage";
 import SignUp from "../pages/login/SignUp";
 import SignIn from "../pages/login/SignIn";
-import AllService from "../pages/services/AllService";
+
 import AdminLayout from "../layout/AdminLayout";
 import AddUser from "../pages/users/AddUser";
+import AllService from "../pages/services/AllServices";
 
 const MainRoutes = createBrowserRouter([
   {

@@ -83,7 +83,7 @@ const Header = () => {
         >
           <Link
             style={{ fontSize: 16, color: "white", paddingRight: "8px" }}
-            href="/allService"
+            to="/all-service"
           >
             All Services
           </Link>
