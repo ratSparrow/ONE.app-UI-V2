@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAddOrderMutation } from "../../redux/slice/api/orderApi";
-import { Col, Row } from "antd";
-
+import { Alert, Button, Col, Row, Select } from "antd";
+import CustomForm from "../../components/forms/CustomForm";
 
 const UserStatus = () => {
-    const {id} = useParams()
+  const { id } = useParams();
   const [status, setStatus] = useState("pending");
   const [message, setMessage] = useState("");
 
-  const orderId = id
+  const orderId = id;
   console.log(orderId);
   const [updateOrder] = useAddOrderMutation(orderId);
   const handleChange = (value) => {
@@ -39,7 +39,7 @@ const UserStatus = () => {
         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
           <Col className="gutter-row" span={16}>
             <h2 style={{ margin: 16 }}>Update Order</h2>
-            <Custom submitHandler={onSubmit}>
+            <CustomForm submitHandler={onSubmit}>
               <div
                 style={{
                   border: "1px solid #d9d9d9",
@@ -86,7 +86,7 @@ const UserStatus = () => {
                   />
                 )}
               </div>
-            </Custom>
+            </CustomForm>
           </Col>
         </Row>
       </div>
@@ -96,6 +96,3 @@ const UserStatus = () => {
 
 export default UserStatus;
 
-UserStatus.getLayout = function getLayout(page) {
-  return <UserDashboardLayout>{page}</UserDashboardLayout>;
-};
