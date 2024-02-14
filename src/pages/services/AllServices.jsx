@@ -78,7 +78,7 @@ const AllService = () => {
                 </Typography>
               </div>
               <div style={{ margin: 16 }}>
-                <Link to={`/serviceDetails/${item._id}`}>
+                <Link to={`/details/${item._id}`}>
                   <Card
                     hoverable
                     style={{ maxWidth: 240 }}

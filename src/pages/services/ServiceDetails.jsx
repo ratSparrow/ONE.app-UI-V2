@@ -9,6 +9,7 @@ import DetailsComponent from "../../components/services/DetailsComponent";
 
 const ServiceDetailsPage = () => {
   const { id } = useParams();
+  console.log("ServiceDetailsPage", id);
   const [packages, setPackages] = useState([]);
 
   const [loading, setLoading] = useState(false);
