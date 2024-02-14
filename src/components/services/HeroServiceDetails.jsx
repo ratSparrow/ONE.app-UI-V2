@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import "../../pages/css/ServiceDetails.css";
-import { Breadcrumb, Typography } from "antd";
-import { HomeOutlined } from "@ant-design/icons";
-import Link from "react-router-dom";
+
 
 const HeroServiceDetails = ({ detailsService }) => {
   return (
@@ -13,7 +11,14 @@ const HeroServiceDetails = ({ detailsService }) => {
         src={detailsService?.images}
         alt={detailsService?.title}
       />
-      <div className="headerContent">
+    </div>
+  );
+};
+
+export default HeroServiceDetails;
+
+/*
+ <div className="headerContent">
         <Breadcrumb
           items={[
             {
@@ -48,17 +53,13 @@ const HeroServiceDetails = ({ detailsService }) => {
                     fontFamily: "serif",
                     fontWeight: 800,
                   }}
-                >{`${detailsService?.name}`}</Typography>
+                >{`${detailsService.name}`}</Typography>
               ),
             },
           ]}
         />
         <h4 style={{ color: "#FFFFFF", fontFamily: "serif", marginTop: 10 }}>
-          {detailsService?.name}
+          {detailsService.name}
         </h4>
       </div>
-    </div>
-  );
-};
-
-export default HeroServiceDetails;
+*/

@@ -10,7 +10,8 @@ import AllService from "../pages/services/AllServices";
 
 import Admin from "../pages/admin/Admin";
 import EditAdmin from "../pages/admin/EditAdmin";
-import ServiceDetailsPage from "../pages/services/ServiceDetails";
+
+import ServiceDetails from "../pages/services/ServiceDetails";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -35,7 +36,7 @@ const MainRoutes = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <ServiceDetailsPage />,
+        element: <ServiceDetails />,
       },
     ],
   },
