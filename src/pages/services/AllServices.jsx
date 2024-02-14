@@ -34,7 +34,7 @@ const AllService = () => {
             size="large"
             dataSource={data?.data}
             renderItem={(item) => (
-              <Link href={`#${item._id}`}>
+              <Link to={`#${item._id}`}>
                 <List.Item
                   className="serviceList"
                   style={{
@@ -78,7 +78,7 @@ const AllService = () => {
                 </Typography>
               </div>
               <div style={{ margin: 16 }}>
-                <Link href={`/serviceDetails/${item._id}`}>
+                <Link to={`/serviceDetails/${item._id}`}>
                   <Card
                     hoverable
                     style={{ maxWidth: 240 }}
