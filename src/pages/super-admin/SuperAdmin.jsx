@@ -1,12 +1,8 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import SuperAdminLayout from "@/components/Layout/SuperAdminLayout";
-import Profile from "@/components/Profile/Profile";
-import { useGetUserProfileQuery } from "@/redux/slice/api/userApi";
-import { storeUserInfo } from "@/services/auth.service";
-import { HomeOutlined } from "@ant-design/icons";
 import { Breadcrumb, Spin } from "antd";
-import Link from "next/link";
-import React, { useEffect } from "react";
+import { useGetUserProfileQuery } from "../../redux/slice/api/userApi";
+import { Link } from "react-router-dom";
+import { HomeOutlined } from "@ant-design/icons";
+import Profile from "../../components/user/Profile";
 
 const SuperAdminPage = () => {
   const { data, isLoading } = useGetUserProfileQuery();
@@ -28,7 +24,7 @@ const SuperAdminPage = () => {
           items={[
             {
               title: (
-                <Link href="/">
+                <Link to="/">
                   <HomeOutlined />
                 </Link>
               ),
@@ -37,7 +33,7 @@ const SuperAdminPage = () => {
               title: "Admin",
             },
             {
-              title: <Link href="/admin/view-profile">Account</Link>,
+              title: <Link to="/admin/view-profile">Account</Link>,
             },
           ]}
         />
@@ -59,5 +55,3 @@ const SuperAdminPage = () => {
 };
 
 export default SuperAdminPage;
-
-
