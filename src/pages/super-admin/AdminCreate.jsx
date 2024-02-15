@@ -1,5 +1,11 @@
+import { Breadcrumb, Button, Col, Row, Typography } from "antd";
+import { useAddAdminMutation } from "../../redux/slice/api/adminApi";
+import { Link, Navigate } from "react-router-dom";
+import { HomeOutlined } from "@ant-design/icons";
+import CustomForm from "../../components/forms/CustomForm";
+import CustomInput from "../../components/forms/CustomInput";
+
 const AdminCreate = () => {
-  const router = useRouter();
   const [addAdmin] = useAddAdminMutation();
   const onSubmit = async (data) => {
     try {
@@ -7,7 +13,11 @@ const AdminCreate = () => {
       const res = await addAdmin(data);
       console.log(res);
       if (res.data.statusCode === 200) {
-        router.push("/super-admin/view-admins");
+        <Navigate
+          to="/super-admin/view-admins"
+          state={{ from: location }}
+          replace
+        />;
       }
     } catch (error) {
       console.log(error);
@@ -20,7 +30,7 @@ const AdminCreate = () => {
           items={[
             {
               title: (
-                <Link href="/">
+                <Link to="/">
                   <HomeOutlined />
                 </Link>
               ),
@@ -29,7 +39,7 @@ const AdminCreate = () => {
               title: "Super Admin",
             },
             {
-              title: <Link href="/super-admin/create-admin">Create Admin</Link>,
+              title: <Link to="/super-admin/create-admin">Create Admin</Link>,
             },
           ]}
         />
@@ -40,7 +50,7 @@ const AdminCreate = () => {
             Create New Admin
           </Typography>
         </div>
-        <Form submitHandler={onSubmit}>
+        <CustomForm submitHandler={onSubmit}>
           <div
             style={{
               border: "1px solid #d9d9d9",
@@ -51,7 +61,7 @@ const AdminCreate = () => {
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="name.firstName"
                   label="First Name"
                   type="text"
@@ -61,7 +71,7 @@ const AdminCreate = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="name.lastName"
                   label="Last Name"
                   type="text"
@@ -71,7 +81,7 @@ const AdminCreate = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="email"
                   label="Email"
                   type="email"
@@ -81,7 +91,7 @@ const AdminCreate = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="address"
                   label="Address"
                   type="text"
@@ -91,7 +101,7 @@ const AdminCreate = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="phoneNumber"
                   label="Phone"
                   type="text"
@@ -101,7 +111,7 @@ const AdminCreate = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="password"
                   label="Password"
                   type="password"
@@ -111,7 +121,7 @@ const AdminCreate = () => {
               </Col>
               <Col className="gutter-row" span={8}>
                 {" "}
-                <FormInput
+                <CustomInput
                   name="profileImg"
                   label="Image"
                   type="text"
@@ -129,7 +139,7 @@ const AdminCreate = () => {
               Create
             </Button>
           </div>
-        </Form>
+        </CustomForm>
       </div>
     </div>
   );
