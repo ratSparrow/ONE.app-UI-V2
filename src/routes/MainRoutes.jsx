@@ -12,6 +12,7 @@ import Admin from "../pages/admin/Admin";
 import EditAdmin from "../pages/admin/EditAdmin";
 
 import ServiceDetails from "../pages/services/ServiceDetails";
+import AllBlogs from "../pages/blogs/AllBlogs";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const MainRoutes = createBrowserRouter([
       {
         path: "/details/:id",
         element: <ServiceDetails />,
+      },
+      {
+        path: "/blog",
+        element: <AllBlogs />,
       },
     ],
   },
