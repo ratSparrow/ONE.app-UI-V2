@@ -14,6 +14,7 @@ import EditAdmin from "../pages/admin/EditAdmin";
 import ServiceDetails from "../pages/services/ServiceDetails";
 import AllBlogs from "../pages/blogs/AllBlogs";
 import BlogDetails from "../pages/blogs/BlogDetails";
+import AddNewBlog from "../pages/blogs/AddNewBlog";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -63,8 +64,12 @@ const MainRoutes = createBrowserRouter([
         element: <EditAdmin />,
       },
       {
-        path: "/admin/add-user",
+        path: "/admin/user/add",
         element: <AddUser />,
+      },
+      {
+        path: "/admin/blog/add",
+        element: <AddNewBlog />,
       },
     ],
   },
