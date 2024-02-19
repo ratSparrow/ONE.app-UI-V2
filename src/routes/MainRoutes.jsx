@@ -22,6 +22,7 @@ import AllEvents from "../pages/events/AllEvents";
 import EventDetails from "../pages/events/EventDetails";
 import EditEvent from "../pages/events/EditEvent";
 import DeleteEvent from "../pages/events/DeleteEvent";
+import AddEvent from "../pages/events/AddEvent";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ const MainRoutes = createBrowserRouter([
       {
         path: "/admin/blog/delete/:id",
         element: <DeleteBlog />,
+      },
+      {
+        path: "/admin/event/add",
+        element: <AddEvent />,
       },
       {
         path: "/admin/event/edit/:id",
