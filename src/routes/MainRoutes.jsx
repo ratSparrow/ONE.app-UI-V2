@@ -17,6 +17,7 @@ import BlogDetails from "../pages/blogs/BlogDetails";
 import AddNewBlog from "../pages/blogs/AddNewBlog";
 import EditBlog from "../pages/blogs/EditBlog";
 import DeleteBlog from "../pages/blogs/DeleteBlog";
+import DeleteAdmin from "../pages/admin/DeleteAdmin";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const MainRoutes = createBrowserRouter([
       {
         path: "/admin/edit/:id",
         element: <EditAdmin />,
+      },
+      {
+        path: "/admin/delete/:id",
+        element: <DeleteAdmin />,
       },
       {
         path: "/admin/user/add",
