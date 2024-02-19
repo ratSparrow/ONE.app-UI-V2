@@ -18,6 +18,10 @@ import AddNewBlog from "../pages/blogs/AddNewBlog";
 import EditBlog from "../pages/blogs/EditBlog";
 import DeleteBlog from "../pages/blogs/DeleteBlog";
 import DeleteAdmin from "../pages/admin/DeleteAdmin";
+import AllEvents from "../pages/events/AllEvents";
+import EventDetails from "../pages/events/EventDetails";
+import EditEvent from "../pages/events/EditEvent";
+import DeleteEvent from "../pages/events/DeleteEvent";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -49,8 +53,16 @@ const MainRoutes = createBrowserRouter([
         element: <AllBlogs />,
       },
       {
-        path: "/blog/:id",
+        path: "/blog/details/:id",
         element: <BlogDetails />,
+      },
+      {
+        path: "/event",
+        element: <AllEvents />,
+      },
+      {
+        path: "/event/details/:id",
+        element: <EventDetails />,
       },
     ],
   },
@@ -85,6 +97,14 @@ const MainRoutes = createBrowserRouter([
       {
         path: "/admin/blog/delete/:id",
         element: <DeleteBlog />,
+      },
+      {
+        path: "/admin/event/edit/:id",
+        element: <EditEvent />,
+      },
+      {
+        path: "/admin/event/delete/:id",
+        element: <DeleteEvent />,
       },
     ],
   },
