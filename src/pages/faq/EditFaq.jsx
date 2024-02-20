@@ -1,7 +1,9 @@
 
 
 const EditFaq = () => {
-  return <div></div>;
+  return <div>
+  Editfaq page coming soon....
+  </div>;
 };
 
 export default EditFaq;

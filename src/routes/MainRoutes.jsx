@@ -23,6 +23,11 @@ import EventDetails from "../pages/events/EventDetails";
 import EditEvent from "../pages/events/EditEvent";
 import DeleteEvent from "../pages/events/DeleteEvent";
 import AddEvent from "../pages/events/AddEvent";
+import AllFaq from "../pages/faq/AllFaq";
+import FaqDetails from "../pages/faq/FaqDetails";
+import AddFaq from "../pages/faq/AddFaq";
+import EditFaq from "../pages/faq/EditFaq";
+import DeleteFaq from "../pages/faq/DeleteFaq";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -64,6 +69,14 @@ const MainRoutes = createBrowserRouter([
       {
         path: "/event/details/:id",
         element: <EventDetails />,
+      },
+      {
+        path:"/faq",
+        element:<AllFaq/>
+      },
+      {
+        path: "/faq/details/:id",
+        element: <FaqDetails />,
       },
     ],
   },
@@ -110,6 +123,18 @@ const MainRoutes = createBrowserRouter([
       {
         path: "/admin/event/delete/:id",
         element: <DeleteEvent />,
+      },
+      {
+        path:"/admin/faq/add",
+        element:<AddFaq/>
+      },
+      {
+        path: "/admin/faq/edit/:id",
+        element: <EditFaq />,
+      },
+      {
+        path: "/admin/faq/delete/:id",
+        element: <DeleteFaq />,
       },
     ],
   },

@@ -1,5 +1,7 @@
 const AddFaq = () => {
-  return <div></div>;
+  return <div>
+  Add Faq page coming soon
+  </div>;
 };
 
 export default AddFaq;
