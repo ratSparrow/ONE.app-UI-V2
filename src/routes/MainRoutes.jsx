@@ -78,6 +78,14 @@ const MainRoutes = createBrowserRouter([
         path: "/faq/details/:id",
         element: <FaqDetails />,
       },
+      {
+        path:"/services",
+        element:<AllService/>
+      },
+      {
+        path:"/services/details/:id",
+        element:<ServiceDetails/>
+      }
     ],
   },
   {
