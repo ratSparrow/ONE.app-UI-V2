@@ -30,6 +30,8 @@ import EditFaq from "../pages/faq/EditFaq";
 import DeleteFaq from "../pages/faq/DeleteFaq";
 import AddService from "../pages/services/AddService";
 import DeleteService from "../pages/services/DeleteService";
+import CallUs from "../pages/static/CallUs";
+import ChooseUs from "../pages/static/ChooseUs";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -49,12 +51,12 @@ const MainRoutes = createBrowserRouter([
         element: <SignIn />,
       },
       {
-        path: "/all-service",
-        element: <AllService />,
+        path:"/call-us",
+        element:<CallUs/>
       },
       {
-        path: "/details/:id",
-        element: <ServiceDetails />,
+        path:"/choose-us",
+        element:<ChooseUs/>
       },
       {
         path: "/blog",
