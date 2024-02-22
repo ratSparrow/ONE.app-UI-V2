@@ -28,6 +28,8 @@ import FaqDetails from "../pages/faq/FaqDetails";
 import AddFaq from "../pages/faq/AddFaq";
 import EditFaq from "../pages/faq/EditFaq";
 import DeleteFaq from "../pages/faq/DeleteFaq";
+import AddService from "../pages/services/AddService";
+import DeleteService from "../pages/services/DeleteService";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -143,6 +145,18 @@ const MainRoutes = createBrowserRouter([
       {
         path: "/admin/faq/delete/:id",
         element: <DeleteFaq />,
+      },
+      {
+        path:"/admin/services/add",
+        element:<AddService/>
+      },
+      {
+        path:"/admin/services/edit/:id",
+        element:<AddService/>
+      },
+      {
+        path:"/admin/services/delete/:id",
+        element:<DeleteService/>
       },
     ],
   },
