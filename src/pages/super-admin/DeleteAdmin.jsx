@@ -3,7 +3,7 @@
 const DeleteAdmin = () => {
     return (
         <div>
-            Delete admin page coming soon...
+            Delete Admin page coming soon
         </div>
     );
 };

@@ -5,7 +5,7 @@ import { HomeOutlined } from "@ant-design/icons";
 import CustomForm from "../../components/forms/CustomForm";
 import CustomInput from "../../components/forms/CustomInput";
 
-const AdminCreate = () => {
+const AddAdmin = () => {
   const [addAdmin] = useAddAdminMutation();
   const onSubmit = async (data) => {
     try {
@@ -145,4 +145,4 @@ const AdminCreate = () => {
   );
 };
 
-export default AdminCreate;
+export default AddAdmin;
