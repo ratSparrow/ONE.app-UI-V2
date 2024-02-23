@@ -5,7 +5,7 @@ import Loading from "../../ui/common/Loading";
 import { useGetUserProfileQuery } from "../../redux/slice/api/userApi";
 import Profile from "../../components/user/Profile";
 
-const Admin = () => {
+const AdminProfile = () => {
   const { data, isLoading } = useGetUserProfileQuery();
   if (isLoading) {
     return <Loading />;
@@ -51,4 +51,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AdminProfile;

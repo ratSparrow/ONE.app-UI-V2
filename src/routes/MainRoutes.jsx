@@ -8,7 +8,6 @@ import AdminLayout from "../layout/AdminLayout";
 import AddUser from "../pages/users/AddUser";
 import AllService from "../pages/services/AllServices";
 
-import Admin from "../pages/admin/Admin";
 import EditAdmin from "../pages/admin/EditAdmin";
 
 import ServiceDetails from "../pages/services/ServiceDetails";
@@ -32,6 +31,9 @@ import AddService from "../pages/services/AddService";
 import DeleteService from "../pages/services/DeleteService";
 import CallUs from "../pages/static/CallUs";
 import ChooseUs from "../pages/static/ChooseUs";
+import SuperAdminLayout from "../layout/SuperAdminLayout";
+import SuperAdminProfile from "../pages/super-admin/SuperAdmin";
+import AdminProfile from "../pages/admin/Admin";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -98,7 +100,7 @@ const MainRoutes = createBrowserRouter([
     children: [
       {
         path: "/admin",
-        element: <Admin />,
+        element: <AdminProfile />,
       },
       {
         path: "/admin/edit/:id",
@@ -162,5 +164,15 @@ const MainRoutes = createBrowserRouter([
       },
     ],
   },
+  {
+    path:"/",
+    element:<SuperAdminLayout/>,
+    children:[
+      {
+        path:"/super-admin",
+        element:<SuperAdminProfile/>
+      }
+    ]
+  }
 ]);
 export default MainRoutes;

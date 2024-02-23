@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { HomeOutlined } from "@ant-design/icons";
 import Profile from "../../components/user/Profile";
 
-const SuperAdminPage = () => {
+const SuperAdminProfile = () => {
   const { data, isLoading } = useGetUserProfileQuery();
   if (isLoading) {
     return <Spin />;
@@ -54,4 +54,4 @@ const SuperAdminPage = () => {
   );
 };
 
-export default SuperAdminPage;
+export default SuperAdminProfile;
