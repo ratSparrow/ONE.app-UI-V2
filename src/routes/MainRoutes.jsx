@@ -16,7 +16,7 @@ import BlogDetails from "../pages/blogs/BlogDetails";
 import AddNewBlog from "../pages/blogs/AddNewBlog";
 import EditBlog from "../pages/blogs/EditBlog";
 import DeleteBlog from "../pages/blogs/DeleteBlog";
-import DeleteAdmin from "../pages/admin/DeleteAdmin";
+
 import AllEvents from "../pages/events/AllEvents";
 import EventDetails from "../pages/events/EventDetails";
 import EditEvent from "../pages/events/EditEvent";
@@ -34,6 +34,10 @@ import ChooseUs from "../pages/static/ChooseUs";
 import SuperAdminLayout from "../layout/SuperAdminLayout";
 import SuperAdminProfile from "../pages/super-admin/SuperAdmin";
 import AdminProfile from "../pages/admin/Admin";
+import EditSuperAdmin from "../pages/super-admin/EditSuperAdmin";
+import DeleteSuperAdmin from "../pages/super-admin/DeleteSuperAdmin";
+import DeleteAdmin from "../pages/super-admin/DeleteAdmin";
+import AllAdmins from "../pages/super-admin/AllAdmins";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -107,10 +111,6 @@ const MainRoutes = createBrowserRouter([
         element: <EditAdmin />,
       },
       {
-        path: "/admin/delete/:id",
-        element: <DeleteAdmin />,
-      },
-      {
         path: "/admin/user/add",
         element: <AddUser />,
       },
@@ -171,7 +171,23 @@ const MainRoutes = createBrowserRouter([
       {
         path:"/super-admin",
         element:<SuperAdminProfile/>
-      }
+      },
+      {
+        path:"/super-admin/edit/:id",
+        element:<EditSuperAdmin/>
+      },
+      {
+        path:"/super-admin/delete/:id",
+        element:<DeleteSuperAdmin/>
+      },
+      {
+        path:"/super-admin/admin/view",
+        element:<AllAdmins/>
+      },
+      {
+        path:"/super-admin/admin/delete/:id",
+        element:<DeleteAdmin/>
+      },
     ]
   }
 ]);

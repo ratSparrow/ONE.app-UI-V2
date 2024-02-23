@@ -5,7 +5,7 @@ import { HomeOutlined } from "@ant-design/icons";
 import AdminTableItem from "../../constants/admin/AdminTableItem";
 
 
-const ViewAdmins = () => {
+const AllAdmins = () => {
   const { data, isLoading } = useGetAllAdminQuery();
   console.log(data);
   return (
@@ -54,6 +54,6 @@ const ViewAdmins = () => {
   );
 };
 
-export default ViewAdmins;
+export default AllAdmins;
 
 
