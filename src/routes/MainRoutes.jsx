@@ -40,6 +40,7 @@ import DeleteAdmin from "../pages/super-admin/DeleteAdmin";
 import AllAdmins from "../pages/super-admin/AllAdmins";
 import DeleteUser from "../pages/users/DeleteUser";
 import EditUser from "../pages/users/EditUser";
+import AllUsers from "../pages/users/AllUsers";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -67,7 +68,7 @@ const MainRoutes = createBrowserRouter([
         element:<ChooseUs/>
       },
       {
-        path: "/blog",
+        path: "/blog/view",
         element: <AllBlogs />,
       },
       {
@@ -75,7 +76,7 @@ const MainRoutes = createBrowserRouter([
         element: <BlogDetails />,
       },
       {
-        path: "/event",
+        path: "/event/view",
         element: <AllEvents />,
       },
       {
@@ -97,7 +98,11 @@ const MainRoutes = createBrowserRouter([
       {
         path:"/services/details/:id",
         element:<ServiceDetails/>
-      }
+      },
+      {
+        path:"/user/edit/:id",
+        element:<EditUser/>
+      },
     ],
   },
   {
@@ -165,12 +170,12 @@ const MainRoutes = createBrowserRouter([
         element:<DeleteService/>
       },
       {
-        path:"/admin/user/edit/:id",
-        element:<EditUser/>
-      },
-      {
         path:"/admin/user/delete/:id",
         element:<DeleteUser/>
+      },
+      {
+        path:"/admin/user/view",
+        element:<AllUsers/>
       },
     ],
   },
