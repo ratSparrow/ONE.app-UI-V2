@@ -5,7 +5,7 @@ import SignUp from "../pages/login/SignUp";
 import SignIn from "../pages/login/SignIn";
 
 import AdminLayout from "../layout/AdminLayout";
-import AddUser from "../pages/users/AddUser";
+
 import AllService from "../pages/services/AllServices";
 
 import EditAdmin from "../pages/admin/EditAdmin";
@@ -116,10 +116,6 @@ const MainRoutes = createBrowserRouter([
       {
         path: "/admin/edit/:id",
         element: <EditAdmin />,
-      },
-      {
-        path: "/admin/user/add",
-        element: <AddUser />,
       },
       {
         path: "/admin/blog/add",

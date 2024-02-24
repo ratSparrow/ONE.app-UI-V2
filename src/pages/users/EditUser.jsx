@@ -1,5 +1,3 @@
-
-
 const EditUser = () => {
     return (
         <div>
