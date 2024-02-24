@@ -39,6 +39,7 @@ import DeleteSuperAdmin from "../pages/super-admin/DeleteSuperAdmin";
 import DeleteAdmin from "../pages/super-admin/DeleteAdmin";
 import AllAdmins from "../pages/super-admin/AllAdmins";
 import DeleteUser from "../pages/users/DeleteUser";
+import EditUser from "../pages/users/EditUser";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -162,6 +163,10 @@ const MainRoutes = createBrowserRouter([
       {
         path:"/admin/services/delete/:id",
         element:<DeleteService/>
+      },
+      {
+        path:"/admin/user/edit/:id",
+        element:<EditUser/>
       },
       {
         path:"/admin/user/delete/:id",
