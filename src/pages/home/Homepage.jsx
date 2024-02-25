@@ -17,11 +17,11 @@ import Feedback from "../../components/home/feedback/Feedback";
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { data, isLoading: serviceLoading } = useGetAllSubServicesQuery();
+
   const { data: subService, isLoading: subServiceLoading } =
     useGetAllSubServicesQuery();
   const { data: events, isLoading: eventLoading } = useGetAllEventsQuery();
-  if (serviceLoading && subServiceLoading) {
+  if (subServiceLoading) {
     return (
       <Spin
         style={{
@@ -33,7 +33,7 @@ export default function HomePage() {
       />
     );
   }
-  const services = data;
+
   const subServices = subService?.data;
   const event = events?.data;
 
@@ -48,7 +48,7 @@ export default function HomePage() {
   };
   return (
     <div>
-      {serviceLoading | subServiceLoading | event ? (
+      {  subServiceLoading | event ? (
         <Spin
           style={{
             display: "flex",
@@ -60,12 +60,12 @@ export default function HomePage() {
       ) : (
         <>
           <HeroCarousel />
-          <Services services={services} showModal={showModal} />
+          <Services  showModal={showModal} />
           <SubService
             isModalOpen={isModalOpen}
             handleOk={handleOk}
             handleCancel={handleCancel}
-            services={services}
+            
           />
           <h2
             style={{

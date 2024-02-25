@@ -2,9 +2,12 @@
 /* eslint-disable react/jsx-key */
 
 import { Card, Col, Row } from "antd";
+import { useGetAllSubServicesQuery } from "../../../redux/slice/api/subServiceApi";
 const { Meta } = Card;
 
-const Services = ({ services, showModal }) => {
+const Services = ({ showModal }) => {
+  const { data } = useGetAllSubServicesQuery();
+  console.log("services", data)
   return (
     <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>
       <h1
@@ -20,7 +23,7 @@ const Services = ({ services, showModal }) => {
         </span>
       </h1>
       <Row gutter={16}>
-        {services?.data?.map((service) => (
+        {data?.data?.map((service) => (
           <Col key={service._id} xs={24} sm={8} md={8} lg={6}>
             <button
               style={{ border: "none", backgroundColor: "#F5F5F5" }}
@@ -36,7 +39,7 @@ const Services = ({ services, showModal }) => {
                 cover={
                   <img
                     alt=""
-                    src={service.image}
+                    src={service.images[0]}
                     style={{ maxWidth: "400px", height: "170px" }}
                   />
                 }
