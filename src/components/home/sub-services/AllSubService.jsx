@@ -15,7 +15,7 @@ const AllSubServices = ({ subServices }) => {
       <Row gutter={16}>
         {subServices?.map((item) => (
           <Col key={item._id} xs={24} sm={8} md={8} lg={6}>
-            <Link to={`/serviceDetails/${item._id}`}>
+            <Link to={`/services/details/${item._id}`}>
               <Card
                 key={item._id}
                 hoverable
