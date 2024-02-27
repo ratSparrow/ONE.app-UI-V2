@@ -1,12 +1,26 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
 
-import { Card, Col, Row } from "antd";
-import { useGetAllSubServicesQuery } from "../../../redux/slice/api/subServiceApi";
+import { Card, Col, Row, Spin } from "antd";
+
+import { useGetAllServicesQuery } from "../../../redux/slice/api/servicesApi";
 const { Meta } = Card;
 
 const Services = ({ showModal }) => {
-  const { data } = useGetAllSubServicesQuery();
+  const { data,loaing } = useGetAllServicesQuery();
+  if (loaing) {
+    return (
+      <Spin
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      />
+    );
+  }
+
   console.log("services", data)
   return (
     <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>

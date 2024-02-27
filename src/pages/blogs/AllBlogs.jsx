@@ -6,7 +6,7 @@ const AllBlogs = () => {
   const { data, isLoading } = useGetAllBlogQuery();
 
   const blogs = data?.data;
-  console.log("blogs", blogs);
+  // console.log("blogs", blogs);
   return (
     <>
       {isLoading ? (
