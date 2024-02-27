@@ -18,23 +18,11 @@ import Feedback from "../../components/home/feedback/Feedback";
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { data: subService, isLoading: subServiceLoading } =
-    useGetAllSubServicesQuery();
-  const { data: events, isLoading: eventLoading } = useGetAllEventsQuery();
-  if (subServiceLoading) {
-    return (
-      <Spin
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      />
-    );
-  }
 
-  const subServices = subService?.data;
+  const { data: events, isLoading: eventLoading } = useGetAllEventsQuery();
+
+
+
   const event = events?.data;
 
   const showModal = () => {
@@ -48,7 +36,7 @@ export default function HomePage() {
   };
   return (
     <div>
-      {  subServiceLoading | event ? (
+      {   event ? (
         <Spin
           style={{
             display: "flex",
@@ -90,7 +78,7 @@ export default function HomePage() {
             alt=""
             width="100%"
           />
-          <AllSubServices subServices={subServices} />
+          <AllSubServices />
 
           <ChooseUs />
           <AllEvents event={event} />

@@ -8,7 +8,6 @@ const { Meta } = Card;
 
 const Services = ({ showModal }) => {
   const { data,loaing } = useGetAllServicesQuery();
-  console.log("useGetAllServicesQuery", data?.data)
   if (loaing) {
     return (
       <Spin
@@ -21,8 +20,8 @@ const Services = ({ showModal }) => {
       />
     );
   }
+  console.log("useGetAllServicesQuery", data?.data)
 
-  console.log("services", data)
   return (
     <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>
       <h1
@@ -54,7 +53,7 @@ const Services = ({ showModal }) => {
                 cover={
                   <img
                     alt=""
-                    src={service.images[0]}
+                    src={service.image}
                     style={{ maxWidth: "400px", height: "170px" }}
                   />
                 }

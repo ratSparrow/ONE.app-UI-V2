@@ -1,10 +1,25 @@
 /* eslint-disable react/prop-types */
 import { Card, Col, Row, Spin } from "antd";
 import { Link } from "react-router-dom";
+import { useGetAllSubServicesQuery } from "../../../redux/slice/api/subServiceApi";
 
 const { Meta } = Card;
 
-const AllSubServices = ({ subServices }) => {
+const AllSubServices = () => {
+  const { data, isLoading } =
+  useGetAllSubServicesQuery();
+  if (isLoading) {
+    return (
+      <Spin
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      />
+    );
+  }
   return (
     <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>
       <h1 style={{ fontSize: "24px", color: "blueviolet", margin: "16px 0" }}>
@@ -13,7 +28,7 @@ const AllSubServices = ({ subServices }) => {
         </span>
       </h1>
       <Row gutter={16}>
-        {subServices?.map((item) => (
+        {data?.data.map((item) => (
           <Col key={item._id} xs={24} sm={8} md={8} lg={6}>
             <Link to={`/services/details/${item._id}`}>
               <Card
