@@ -6,7 +6,7 @@ const UpcomingService = () => {
   const { data, isLoading } = useGetAllUpcomingServiceQuery();
 
   const upcomingServices = data?.data;
-  console.log(upcomingServices);
+  // console.log(upcomingServices);
   return (
     <>
       {isLoading ? (

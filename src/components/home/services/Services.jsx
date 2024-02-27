@@ -8,6 +8,7 @@ const { Meta } = Card;
 
 const Services = ({ showModal }) => {
   const { data,loaing } = useGetAllServicesQuery();
+  console.log("useGetAllServicesQuery", data?.data)
   if (loaing) {
     return (
       <Spin

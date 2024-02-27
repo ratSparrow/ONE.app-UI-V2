@@ -2,7 +2,7 @@
 import { Card, Col, Row, Spin } from "antd";
 
 const AllEvents = ({ event }) => {
-  console.log(event);
+  // console.log(event);
   return (
     <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>
       <h1
