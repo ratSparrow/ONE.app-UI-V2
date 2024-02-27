@@ -1,7 +1,22 @@
 /* eslint-disable react/prop-types */
 import { Card, Col, Row, Spin } from "antd";
+import { useGetAllEventsQuery } from "../../redux/slice/api/eventApi";
 
-const AllEvents = ({ event }) => {
+const AllEvents = () => {
+  const { data, isLoading } = useGetAllEventsQuery();
+
+  if (isLoading) {
+    return (
+      <Spin
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      />
+    );
+  }
   // console.log(event);
   return (
     <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>
@@ -18,7 +33,7 @@ const AllEvents = ({ event }) => {
         </span>
       </h1>
       <Row gutter={16}>
-        {event?.map((item) => (
+        {data?.data.map((item) => (
           <Col key={item._id} xs={24} sm={8} md={8} lg={6}>
             <Card
               key={item._id}

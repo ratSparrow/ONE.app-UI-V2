@@ -19,12 +19,11 @@ export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 
-  const { data: events, isLoading: eventLoading } = useGetAllEventsQuery();
 
 
 
-  const event = events?.data;
 
+  
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -36,17 +35,8 @@ export default function HomePage() {
   };
   return (
     <div>
-      {   event ? (
-        <Spin
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-          }}
-        />
-      ) : (
-        <>
+
+
           <HeroCarousel />
           <Services  showModal={showModal} />
           <SubService
@@ -81,13 +71,12 @@ export default function HomePage() {
           <AllSubServices />
 
           <ChooseUs />
-          <AllEvents event={event} />
+          <AllEvents />
           <CallUs />
           <UpcomingService />
           <AllBlogs />
           <Feedback />
-        </>
-      )}
+ 
     </div>
   );
 }

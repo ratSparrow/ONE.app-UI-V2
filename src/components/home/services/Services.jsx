@@ -7,8 +7,8 @@ import { useGetAllServicesQuery } from "../../../redux/slice/api/servicesApi";
 const { Meta } = Card;
 
 const Services = ({ showModal }) => {
-  const { data,loaing } = useGetAllServicesQuery();
-  if (loaing) {
+  const { data,isLoading } = useGetAllServicesQuery();
+  if (isLoading) {
     return (
       <Spin
         style={{
@@ -20,7 +20,7 @@ const Services = ({ showModal }) => {
       />
     );
   }
-  console.log("useGetAllServicesQuery", data?.data)
+  // console.log("useGetAllServicesQuery", data?.data)
 
   return (
     <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>

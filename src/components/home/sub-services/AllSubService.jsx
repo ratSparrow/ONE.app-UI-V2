@@ -20,6 +20,8 @@ const AllSubServices = () => {
       />
     );
   }
+
+  console.log("useGetAllSubServicesQuery",data)
   return (
     <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>
       <h1 style={{ fontSize: "24px", color: "blueviolet", margin: "16px 0" }}>
