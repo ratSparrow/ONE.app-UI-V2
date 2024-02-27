@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { Spin } from "antd";
 import HeroCarousel from "../../ui/carousel/HeroCarousel";
-import Services from "../../components/home/services/Services";
-import SubService from "../../components/home/sub-services/SubServices";
+import Services from "../../components/home/services/HomeServiceCard";
+import SubService from "../../components/home/sub-services/HomeServiceModal";
 import { useState } from "react";
 import { useGetAllSubServicesQuery } from "../../redux/slice/api/subServiceApi";
 import { useGetAllEventsQuery } from "../../redux/slice/api/eventApi";
@@ -13,17 +13,20 @@ import CallUs from "../static/CallUs";
 import UpcomingService from "../../components/home/upcoming-service/UpcomingService";
 import AllBlogs from "../blogs/AllBlogs";
 import Feedback from "../../components/home/feedback/Feedback";
-
+import ServiceOrder from "../../components/home/static/ServiceOrder";
+import HomeServiceModal from "../../components/home/sub-services/HomeServiceModal";
+import { useGetAllServicesQuery } from "../../redux/slice/api/servicesApi";
+import Loading from "../../ui/common/Loading";
+import HomeServiceCard from "../../components/home/services/HomeServiceCard";
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { data: services, isLoading } = useGetAllServicesQuery();
 
+  if (isLoading) {
+    return <Loading />;
+  }
 
-
-
-
-
-  
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -35,50 +38,22 @@ export default function HomePage() {
   };
   return (
     <div>
-
-
-          <HeroCarousel />
-          <Services  showModal={showModal} />
-          <SubService
-            isModalOpen={isModalOpen}
-            handleOk={handleOk}
-            handleCancel={handleCancel}
-            
-          />
-          <h2
-            style={{
-              fontWeight: 600,
-              color: "blueviolet",
-              textAlign: "center",
-              fontSize: 44,
-            }}
-          >
-            <span
-              style={{
-                textTransform: "uppercase",
-                padding: 0,
-                margin: 0,
-              }}
-            >
-              We Are Waiting For Your Order
-            </span>
-          </h2>
-          <img
-            src="https://img.freepik.com/premium-photo/people-representing-diverse-professions-with-tools-holding-big-blank-banner-isolated-white-background_394555-662.jpg?w=1380"
-            alt=""
-            width="100%"
-          />
-          <AllSubServices />
-
-          <ChooseUs />
-          <AllEvents />
-          <CallUs />
-          <UpcomingService />
-          <AllBlogs />
-          <Feedback />
- 
+      <HeroCarousel />
+      <HomeServiceCard showModal={showModal} />
+      <HomeServiceModal
+        services={services}
+        isModalOpen={isModalOpen}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+      />
+      <ServiceOrder />
+      <AllSubServices />
+      <ChooseUs />
+      <AllEvents />
+      <CallUs />
+      <UpcomingService />
+      <AllBlogs />
+      <Feedback />
     </div>
   );
 }
-
-

@@ -13,8 +13,6 @@ const AllService = () => {
   if (isLoading) {
     return <Loading />;
   }
-  // console.log(data?.data);
-
   return (
     <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
       <Row gutter={16}>

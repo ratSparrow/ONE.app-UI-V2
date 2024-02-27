@@ -2,6 +2,7 @@
 import { Card, Col, Row, Spin } from "antd";
 import { Link } from "react-router-dom";
 import { useGetAllSubServicesQuery } from "../../../redux/slice/api/subServiceApi";
+import Loading from "../../../ui/common/Loading";
 
 const { Meta } = Card;
 
@@ -10,18 +11,11 @@ const AllSubServices = () => {
   useGetAllSubServicesQuery();
   if (isLoading) {
     return (
-      <Spin
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      />
+      <Loading/>
     );
   }
 
-  console.log("useGetAllSubServicesQuery",data)
+  // console.log("useGetAllSubServicesQuery",data)
   return (
     <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>
       <h1 style={{ fontSize: "24px", color: "blueviolet", margin: "16px 0" }}>

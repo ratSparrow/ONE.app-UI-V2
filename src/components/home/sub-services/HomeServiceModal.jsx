@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import ServiceModalList from "../services/ServiceModalList";
 import { getBaseUrl } from "../../../helpers/config/envConfig";
 
-const SubService = ({ handleCancel, handleOk, isModalOpen, services }) => {
+const HomeServiceModal = ({ handleCancel, handleOk, isModalOpen, services }) => {
   const [selectedValue, setSelectedValue] = useState(null);
   const [serviceId, setServiceId] = useState(null);
   const [subCategory, setSubCategory] = useState([]);
@@ -22,6 +22,7 @@ const SubService = ({ handleCancel, handleOk, isModalOpen, services }) => {
         .then((res) => res.json())
         .then((data) => {
           setSubCategory(data);
+          console.log("setSubCategory",data)
           setLoading(false);
         });
     }
@@ -58,7 +59,7 @@ const SubService = ({ handleCancel, handleOk, isModalOpen, services }) => {
             breakpoint="md"
             collapsedWidth="0"
             onBreakpoint={() => {
-              // console.log(broken);
+
             }}
             onCollapse={() => {
               // console.log(collapsed, type, items);
@@ -119,4 +120,4 @@ const SubService = ({ handleCancel, handleOk, isModalOpen, services }) => {
   );
 };
 
-export default SubService;
+export default HomeServiceModal;

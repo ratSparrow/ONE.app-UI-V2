@@ -1,27 +1,20 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
 
-import { Card, Col, Row, Spin } from "antd";
+import { Card, Col, Row } from "antd";
 
 import { useGetAllServicesQuery } from "../../../redux/slice/api/servicesApi";
+import Loading from "../../../ui/common/Loading";
 const { Meta } = Card;
 
-const Services = ({ showModal }) => {
+const HomeServiceCard = ({ showModal }) => {
   const { data,isLoading } = useGetAllServicesQuery();
+    console.log("useGetAllServicesQuery", data?.data)
   if (isLoading) {
     return (
-      <Spin
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      />
+     <Loading/>
     );
   }
-  // console.log("useGetAllServicesQuery", data?.data)
-
   return (
     <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>
       <h1
@@ -68,4 +61,4 @@ const Services = ({ showModal }) => {
   );
 };
 
-export default Services;
+export default HomeServiceCard;

@@ -68,11 +68,11 @@ const CallUs = () => {
           </div>
         </Col>
         <Col className="gutter-row" span={6}>
-          <img
-            src="https://i.ibb.co/7ncPy8c/callus.png"
-            alt="callUs"
-            style={{ width: 400, marginTop: "-150px" }}
-          />
+        <img
+        src="https://i.ibb.co/7ncPy8c/callus.png"
+        alt="callUs"
+        style={{ maxWidth: 400, marginTop: "-150px" }}
+      />
         </Col>
       </Row>
     </div>
