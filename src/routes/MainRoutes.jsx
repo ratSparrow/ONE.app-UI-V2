@@ -43,6 +43,7 @@ import EditUser from "../pages/users/EditUser";
 import AllUsers from "../pages/users/AllUsers";
 
 import CheckoutService from "../pages/checkout/CheckoutService";
+import PrivateRoute from "./PrivateRoute";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -62,12 +63,12 @@ const MainRoutes = createBrowserRouter([
         element: <SignIn />,
       },
       {
-        path:"/call-us",
-        element:<CallUs/>
+        path: "/call-us",
+        element: <CallUs />,
       },
       {
-        path:"/choose-us",
-        element:<ChooseUs/>
+        path: "/choose-us",
+        element: <ChooseUs />,
       },
       {
         path: "/blog/view",
@@ -86,29 +87,33 @@ const MainRoutes = createBrowserRouter([
         element: <EventDetails />,
       },
       {
-        path:"/faq",
-        element:<AllFaq/>
+        path: "/faq",
+        element: <AllFaq />,
       },
       {
         path: "/faq/details/:id",
         element: <FaqDetails />,
       },
       {
-        path:"/services",
-        element:<AllService/>
+        path: "/services",
+        element: <AllService />,
       },
       {
-        path:"/services/details/:id",
-        element:<ServiceDetails/>
+        path: "/services/details/:id",
+        element: <ServiceDetails />,
       },
       {
-        path:"/user/edit/:id",
-        element:<EditUser/>
+        path: "/user/edit/:id",
+        element: <EditUser />,
       },
       {
-        path:"/checkout/:id",
-        element:<CheckoutService/>
-      }
+        path: "/checkout/:id",
+        element: (
+          <PrivateRoute>
+            <CheckoutService />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {
@@ -148,8 +153,8 @@ const MainRoutes = createBrowserRouter([
         element: <DeleteEvent />,
       },
       {
-        path:"/admin/faq/add",
-        element:<AddFaq/>
+        path: "/admin/faq/add",
+        element: <AddFaq />,
       },
       {
         path: "/admin/faq/edit/:id",
@@ -160,53 +165,52 @@ const MainRoutes = createBrowserRouter([
         element: <DeleteFaq />,
       },
       {
-        path:"/admin/services/add",
-        element:<AddService/>
+        path: "/admin/services/add",
+        element: <AddService />,
       },
       {
-        path:"/admin/services/edit/:id",
-        element:<AddService/>
+        path: "/admin/services/edit/:id",
+        element: <AddService />,
       },
       {
-        path:"/admin/services/delete/:id",
-        element:<DeleteService/>
+        path: "/admin/services/delete/:id",
+        element: <DeleteService />,
       },
       {
-        path:"/admin/user/delete/:id",
-        element:<DeleteUser/>
+        path: "/admin/user/delete/:id",
+        element: <DeleteUser />,
       },
       {
-        path:"/admin/user/view",
-        element:<AllUsers/>
+        path: "/admin/user/view",
+        element: <AllUsers />,
       },
     ],
   },
   {
-    path:"/",
-    element:<SuperAdminLayout/>,
-    children:[
+    path: "/",
+    element: <SuperAdminLayout />,
+    children: [
       {
-        path:"/super-admin",
-        element:<SuperAdminProfile/>
+        path: "/super-admin",
+        element: <SuperAdminProfile />,
       },
       {
-        path:"/super-admin/edit/:id",
-        element:<EditSuperAdmin/>
+        path: "/super-admin/edit/:id",
+        element: <EditSuperAdmin />,
       },
       {
-        path:"/super-admin/delete/:id",
-        element:<DeleteSuperAdmin/>
+        path: "/super-admin/delete/:id",
+        element: <DeleteSuperAdmin />,
       },
       {
-        path:"/super-admin/admin/view",
-        element:<AllAdmins/>
+        path: "/super-admin/admin/view",
+        element: <AllAdmins />,
       },
       {
-        path:"/super-admin/admin/delete/:id",
-        element:<DeleteAdmin/>
+        path: "/super-admin/admin/delete/:id",
+        element: <DeleteAdmin />,
       },
-    ]
+    ],
   },
-
 ]);
 export default MainRoutes;
