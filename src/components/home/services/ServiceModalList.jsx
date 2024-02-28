@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ServiceModalList = ({ value }) => {
   console.log(value._id);
   return (
-    <Link to={`/serviceDetails/${value._id}`}>
+    <Link to={`/services/details/${value._id}`}>
       <Card
         hoverable
         style={{
