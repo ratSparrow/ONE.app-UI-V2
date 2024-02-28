@@ -11,7 +11,7 @@ import HeroServiceDetails from "../../components/services/HeroServiceDetails";
 
 const ServiceDetails = () => {
   const { id } = useParams();
-  console.log("ServiceDetails", id);
+  // console.log("ServiceDetails", id);
   const [packages, setPackages] = useState([]);
 
   const [loading, setLoading] = useState(false);

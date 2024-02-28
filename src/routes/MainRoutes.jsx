@@ -42,6 +42,8 @@ import DeleteUser from "../pages/users/DeleteUser";
 import EditUser from "../pages/users/EditUser";
 import AllUsers from "../pages/users/AllUsers";
 
+import CheckoutService from "../pages/checkout/CheckoutService";
+
 const MainRoutes = createBrowserRouter([
   {
     path: "/",
@@ -103,6 +105,10 @@ const MainRoutes = createBrowserRouter([
         path:"/user/edit/:id",
         element:<EditUser/>
       },
+      {
+        path:"/checkout/:id",
+        element:<CheckoutService/>
+      }
     ],
   },
   {
@@ -200,6 +206,7 @@ const MainRoutes = createBrowserRouter([
         element:<DeleteAdmin/>
       },
     ]
-  }
+  },
+
 ]);
 export default MainRoutes;

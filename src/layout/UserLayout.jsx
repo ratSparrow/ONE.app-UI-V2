@@ -9,7 +9,7 @@ import { UserSidebarItems } from "../constants/layout-item/UserSidebarItems";
 
 const { Content, Sider } = Layout;
 
-const UserDashboardLayout = ({ children }) => {
+const UserLayout = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
   const loggedInUser = isLoggedIn();
   const loggedInUserRole = isRole();
@@ -61,4 +61,4 @@ const UserDashboardLayout = ({ children }) => {
   );
 };
 
-export default UserDashboardLayout;
+export default UserLayout;

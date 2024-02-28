@@ -8,6 +8,7 @@ import CustomInput from "../../components/forms/CustomInput";
 
 const CheckoutService = () => {
   const { id } = useParams();
+  console.log("CheckoutService",id)
   const orderedItemId = id;
   const [selectedDate, setSelectedDate] = useState("");
   const [addOrder] = useAddOrderMutation();
