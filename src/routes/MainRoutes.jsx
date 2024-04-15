@@ -43,7 +43,7 @@ import EditUser from "../pages/users/EditUser";
 import AllUsers from "../pages/users/AllUsers";
 
 import CheckoutService from "../pages/checkout/CheckoutService";
-import PrivateRoute from "./PrivateRoute";
+
 
 const MainRoutes = createBrowserRouter([
   {
@@ -109,9 +109,9 @@ const MainRoutes = createBrowserRouter([
       {
         path: "/checkout/:id",
         element: (
-          <PrivateRoute>
+
             <CheckoutService />
-          </PrivateRoute>
+
         ),
       },
     ],

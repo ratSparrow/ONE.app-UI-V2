@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
+
 
 const PrivateRoute = ({ children }) => {
   const [user, loading] = useAuthState(auth);
