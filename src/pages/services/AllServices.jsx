@@ -1,9 +1,11 @@
-import { Card, Col, List, Row, Typography } from "antd";
-import { useGetAllSubCategoryServiceQuery } from "../../redux/slice/api/subCategorySlice";
-import Loading from "../../ui/common/Loading";
-import "../css/AllService.css";
-import { Link } from "react-router-dom";
-import { SafetyOutlined } from "@ant-design/icons";
+import '../css/AllService.css';
+
+import { Card, Col, List, Row, Typography } from 'antd';
+
+import { Link } from 'react-router-dom';
+import Loading from '../../ui/common/Loading';
+import { SafetyOutlined } from '@ant-design/icons';
+import { useGetAllSubCategoryServiceQuery } from '../../redux/slice/api/subCategorySlice';
 
 const { Meta } = Card;
 
@@ -14,15 +16,15 @@ const AllService = () => {
     return <Loading />;
   }
   return (
-    <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+    <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
       <Row gutter={16}>
         <Col md={8} lg={8} span={8}>
           <div
             style={{
               fontWeight: 600,
-              textAlign: "center",
+              textAlign: 'center',
               fontSize: 26,
-              paddingBottom: "16px",
+              paddingBottom: '16px',
             }}
           >
             All Services
@@ -31,8 +33,8 @@ const AllService = () => {
             className="serviceContainer"
             size="large"
             dataSource={data?.data}
-            renderItem={(item) => (
-              <Link to={`#${item._id}`}>
+            renderItem={item => (
+              <Link to={`/services/details/${item._id}`}>
                 <List.Item
                   className="serviceList"
                   style={{
@@ -47,9 +49,9 @@ const AllService = () => {
         </Col>
         <Col
           style={{
-            overflow: "auto",
-            height: "100vh",
-            position: "sticky",
+            overflow: 'auto',
+            height: '100vh',
+            position: 'sticky',
             top: 0,
             bottom: 0,
             left: 0,
@@ -58,25 +60,25 @@ const AllService = () => {
           lg={16}
           span={16}
         >
-          {data?.data.map((item) => (
+          {data?.data.map(item => (
             <div
               key={item._id}
               style={{
                 padding: 16,
                 marginTop: 16,
-                textAlign: "left",
+                textAlign: 'left',
               }}
             >
               <div style={{ margin: 16 }}>
                 <Typography
                   id={`${item._id}`}
-                  style={{ fontSize: 20, fontWeight: 600, color: "tomato" }}
+                  style={{ fontSize: 20, fontWeight: 600, color: 'tomato' }}
                 >
                   {console.log(item.name)}
                 </Typography>
               </div>
               <div style={{ margin: 16 }}>
-                <Link to={`/details/${item._id}`}>
+                <Link to={`/services/details/${item._id}`}>
                   <Card
                     hoverable
                     style={{ maxWidth: 240 }}
@@ -101,24 +103,24 @@ const AllService = () => {
                     </Typography>
                   }
                   dataSource={item.features}
-                  renderItem={(item) => (
+                  renderItem={item => (
                     <List.Item style={{ fontWeight: 400 }}>
                       <Typography
                         style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
                         }}
                       >
-                        {" "}
+                        {' '}
                         <SafetyOutlined
                           style={{
                             fontSize: 16,
                             marginRight: 8,
-                            display: "inline-block",
+                            display: 'inline-block',
                           }}
                         />
-                        <span style={{ display: "inline-block" }}> {item}</span>
+                        <span style={{ display: 'inline-block' }}> {item}</span>
                       </Typography>
                     </List.Item>
                   )}

@@ -2,10 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import HomePage from "../pages/home/Homepage";
 import SignUp from "../pages/login/SignUp";
-import SignIn from "../pages/login/SignIn";
-
-import AdminLayout from "../layout/AdminLayout";
-
+import SignIn from '../pages/login/SignIn';
+import AdminLayout from '../layout/AdminLayout';
 import AllService from "../pages/services/AllServices";
 
 import EditAdmin from "../pages/admin/EditAdmin";
