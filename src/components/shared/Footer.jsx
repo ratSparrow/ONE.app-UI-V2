@@ -1,22 +1,23 @@
 import { Col, Row, Typography } from "antd";
-import { Link } from "react-router-dom";
+
+import { Link } from 'react-router-dom';
 
 const contact = [
   {
     id: 1,
-    label: "+880 1648886671",
+    label: '+88015 33575985',
   },
   {
     id: 2,
-    label: "mrafiul.alam7@gmail.com",
+    label: 'jferdous261999@gmail.com',
   },
   {
     id: 3,
-    label: "Corporate Address",
+    label: 'Corporate Address',
   },
   {
     id: 4,
-    label: "House-7, Block-D, Section-2, Mirpur,Dhaka",
+    label: 'Dhaka',
   },
 ];
 const pages = [

@@ -1,22 +1,23 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { useAddOrderMutation } from "../../redux/slice/api/orderApi";
-import { Button, Col, DatePicker, Row } from "antd";
-import CustomForm from "../../components/forms/CustomForm";
-import CustomSelectedField from "../../components/forms/CustomSelectField";
-import CustomInput from "../../components/forms/CustomInput";
+import { Button, Col, DatePicker, Row } from 'antd';
+
+import CustomForm from '../../components/forms/CustomForm';
+import CustomInput from '../../components/forms/CustomInput';
+import CustomSelectedField from '../../components/forms/CustomSelectField';
+import { useAddOrderMutation } from '../../redux/slice/api/orderApi';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 const CheckoutService = () => {
   const { id } = useParams();
-  console.log("CheckoutService",id)
+  console.log('CheckoutService', id);
   const orderedItemId = id;
-  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedDate, setSelectedDate] = useState('');
   const [addOrder] = useAddOrderMutation();
 
   const onChange = (date, dateString) => {
     setSelectedDate(dateString);
   };
-  const onSubmit = async (data) => {
+  const onSubmit = async data => {
     const mData = {
       date: selectedDate,
       slot: data.slot,
@@ -30,7 +31,7 @@ const CheckoutService = () => {
         area: data.address.sector,
       },
       order: orderedItemId,
-      status: "pending",
+      status: 'pending',
     };
     try {
       const res = await addOrder(mData);
@@ -41,7 +42,7 @@ const CheckoutService = () => {
   };
 
   return (
-    <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+    <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
       <div>
         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
           <Col className="gutter-row" span={16}>
@@ -49,8 +50,8 @@ const CheckoutService = () => {
             <CustomForm submitHandler={onSubmit}>
               <div
                 style={{
-                  border: "1px solid #d9d9d9",
-                  borderRadius: "5px",
+                  border: '1px solid #d9d9d9',
+                  borderRadius: '5px',
                   padding: 8,
                 }}
               >
@@ -61,7 +62,7 @@ const CheckoutService = () => {
                   </Col>
 
                   <Col className="gutter-row" span={12}>
-                    {" "}
+                    {' '}
                     <CustomSelectedField
                       name="slot"
                       placeholder="Select a slot"
@@ -71,8 +72,8 @@ const CheckoutService = () => {
               </div>
               <div
                 style={{
-                  border: "1px solid #d9d9d9",
-                  borderRadius: "5px",
+                  border: '1px solid #d9d9d9',
+                  borderRadius: '5px',
                   padding: 8,
                   marginTop: 16,
                 }}
@@ -80,7 +81,7 @@ const CheckoutService = () => {
                 <h3 style={{ marginBottom: 10 }}>Contact Person</h3>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                   <Col className="gutter-row" span={12}>
-                    {" "}
+                    {' '}
                     <CustomInput
                       name="email"
                       label="Email"
@@ -91,7 +92,7 @@ const CheckoutService = () => {
                   </Col>
 
                   <Col className="gutter-row" span={12}>
-                    {" "}
+                    {' '}
                     <CustomInput
                       name="phoneNumber"
                       label="Phone"
@@ -104,8 +105,8 @@ const CheckoutService = () => {
               </div>
               <div
                 style={{
-                  border: "1px solid #d9d9d9",
-                  borderRadius: "5px",
+                  border: '1px solid #d9d9d9',
+                  borderRadius: '5px',
                   padding: 8,
                   marginTop: 16,
                 }}
@@ -113,7 +114,7 @@ const CheckoutService = () => {
                 <h3 style={{ marginBottom: 10 }}>Address</h3>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                   <Col className="gutter-row" span={12}>
-                    {" "}
+                    {' '}
                     <CustomInput
                       name="address.house"
                       label="House No."
@@ -123,7 +124,7 @@ const CheckoutService = () => {
                     />
                   </Col>
                   <Col className="gutter-row" span={12}>
-                    {" "}
+                    {' '}
                     <CustomInput
                       name="address.road"
                       label="Road No. /Name"
@@ -133,7 +134,7 @@ const CheckoutService = () => {
                     />
                   </Col>
                   <Col className="gutter-row" span={12}>
-                    {" "}
+                    {' '}
                     <CustomInput
                       name="address.block"
                       label="Block"
@@ -143,7 +144,7 @@ const CheckoutService = () => {
                     />
                   </Col>
                   <Col className="gutter-row" span={12}>
-                    {" "}
+                    {' '}
                     <CustomInput
                       name="address.sector"
                       label="Sector"
@@ -153,7 +154,7 @@ const CheckoutService = () => {
                     />
                   </Col>
                   <Col className="gutter-row" span={12}>
-                    {" "}
+                    {' '}
                     <CustomInput
                       name="address.area"
                       label="Area"
