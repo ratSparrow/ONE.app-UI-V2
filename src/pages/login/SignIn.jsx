@@ -4,9 +4,10 @@ import { useForm } from "react-hook-form";
 import { useUserLoginMutation } from "../../redux/slice/api/userApi";
 import { storeUserInfo, storeUserRole } from "../../services/auth.service";
 
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../css/SignUp.css";
 import { ADMIN, USER } from "../../constants/common/user-constant";
+import toast from "react-hot-toast";
 
 const { Text } = Typography;
 
@@ -14,6 +15,7 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const {
     register,
@@ -34,14 +36,16 @@ const SignIn = () => {
 
         storeUserInfo(accessToken);
         storeUserRole(role);
-        // console.log(res.data.data);
-        setSuccessMessage(res.message);
+        setSuccessMessage(res.data.message);
+        console.log(res);
+        toast.success(res.data.message);
+
         if (role === USER) {
-          <Navigate to="/user-profile" state={{ from: location }} replace />;
+          navigate("/user/profile");
         } else if (role === ADMIN) {
-          <Navigate to="/admin" state={{ from: location }} replace />;
+          navigate("/admin");
         } else {
-          <Navigate to="/super-admin" state={{ from: location }} replace />;
+          navigate("/super-admin");
         }
 
         setLoading(false);
@@ -183,15 +187,31 @@ const SignIn = () => {
                     />
 
                     {errorMessage ? (
-                      <Text style={{ padding: "8px" }} type="danger">
+                      <Text
+                        style={{
+                          padding: "8px 0",
+                          display: "block",
+                          fontWeight: "700",
+                          fontSize: "24px",
+                        }}
+                        type="danger"
+                      >
                         {errorMessage}
                       </Text>
                     ) : (
-                      <Text style={{ padding: "8px" }} type="success">
+                      <Text
+                        style={{
+                          padding: "8px 0",
+                          display: "block",
+                          fontWeight: "700",
+                          fontSize: "24px",
+                        }}
+                        type="success"
+                      >
                         {successMessage}
                       </Text>
                     )}
-                    <Link style={{ textDecoration: "none" }} href="/sign-up">
+                    <Link style={{ textDecoration: "none" }} to="/sign-up">
                       <Typography className="formText">
                         Not Have an Account? Sign Up
                       </Typography>{" "}

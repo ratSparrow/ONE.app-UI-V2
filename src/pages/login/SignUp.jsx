@@ -9,6 +9,7 @@ import {
 import { storeUserInfo } from "../../services/auth.service";
 import { Link, Navigate } from "react-router-dom";
 import "../css/SignUp.css";
+import toast from "react-hot-toast";
 
 const { Text } = Typography;
 
@@ -30,14 +31,18 @@ const SignUp = () => {
 
     try {
       const res = await userSignUp(data);
+
       if (res.data.statusCode === 200) {
         const res = await userLogin(data);
+        console.log(res.data.statusCode);
         if (res.data.statusCode === 200) {
           const { accessToken, role, email } = res.data.data;
           storeUserInfo(accessToken, role, email);
           setSuccessMessage(res.message);
+          toast("User created successfully");
           if (accessToken) {
-            <Navigate to="/user-profile" state={{ from: location }} replace />;
+            console.log("object");
+            <Navigate to="/user/profile" state={{ from: location }} replace />;
           } else {
             <Navigate to="/login" state={{ from: location }} replace />;
           }

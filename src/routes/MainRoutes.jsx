@@ -41,7 +41,7 @@ import EditUser from "../pages/users/EditUser";
 import AllUsers from "../pages/users/AllUsers";
 
 import CheckoutService from "../pages/checkout/CheckoutService";
-
+import UserProfile from "../pages/users/User";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -105,12 +105,12 @@ const MainRoutes = createBrowserRouter([
         element: <EditUser />,
       },
       {
+        path: "/user/profile",
+        element: <UserProfile />,
+      },
+      {
         path: "/checkout/:id",
-        element: (
-
-            <CheckoutService />
-
-        ),
+        element: <CheckoutService />,
       },
     ],
   },

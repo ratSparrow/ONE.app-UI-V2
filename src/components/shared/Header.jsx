@@ -1,4 +1,4 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authKey, role } from "../../constants/common/authKey";
 import { ExportOutlined, UserOutlined } from "@ant-design/icons";
 import {
@@ -10,12 +10,13 @@ import { Avatar, Button } from "antd";
 
 const Header = () => {
   const loggedInUser = getUserInfo();
+  const navigate = useNavigate();
 
   console.log(loggedInUser);
   const handleLogout = () => {
     removeUserInfo(authKey);
     removeUserRoleInfo(role);
-    <Navigate to="/login" state={{ from: location }} replace />;
+    navigate("/sign-in");
   };
   return (
     <div style={{ backgroundColor: "#6B5B95" }}>
