@@ -2,8 +2,15 @@
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Button, Col, Row, Typography } from "antd";
 import { Link } from "react-router-dom";
+import { useGetUserProfileQuery } from "../../redux/slice/api/userApi";
+import Loading from "../../ui/common/Loading";
 
-const Profile = ({ user, route }) => {
+const Profile = () => {
+  const { data, isLoading } = useGetUserProfileQuery();
+  if (isLoading) {
+    return <Loading />;
+  }
+  console.log(data?.data);
   return (
     <div
       style={{
@@ -29,11 +36,11 @@ const Profile = ({ user, route }) => {
             }}
           >
             <div>
-              {user?.profileImg ? (
+              {data?.data?.profileImg ? (
                 <div style={{ padding: 16 }}>
                   <img
                     style={{ width: 150, borderRadius: "75px" }}
-                    src={user?.profileImg}
+                    src={data?.data?.profileImg}
                     alt=""
                   />
                 </div>
@@ -41,27 +48,25 @@ const Profile = ({ user, route }) => {
                 <Avatar size={84} icon={<UserOutlined />} />
               )}
             </div>
-            <Button style={{ margin: "0 16px", width: 100 }} type="primary">
-              <Link to={route}>Edit Profile</Link>
+            <Button style={{ margin: "16px 16px", width: 100 }} type="primary">
+              <Link to="">Edit Profile</Link>
             </Button>
           </Col>
           <Col className="gutter-row" span={12}>
             <div style={{ marginTop: 30 }}>
               <Typography style={{ fontSize: 24, fontFamily: "serif" }}>
-                {user?.name?.firstName} {user?.name?.lastName} <br />
-                <span>role as {user?.role}</span>
+                {data?.data?.name?.firstName} {data?.data?.name?.lastName}
+                <span>role as {data?.data?.role}</span>
               </Typography>
               <Typography style={{ fontSize: 24, fontFamily: "serif" }}>
-                Contact:
+                Contact: +88 {data?.data?.phoneNumber}
+              </Typography>
+
+              <Typography style={{ fontSize: 20, fontFamily: "serif" }}>
+                {data?.data?.address}
               </Typography>
               <Typography style={{ fontSize: 20, fontFamily: "serif" }}>
-                +88 {user?.phoneNumber}
-              </Typography>
-              <Typography style={{ fontSize: 20, fontFamily: "serif" }}>
-                {user?.address}
-              </Typography>
-              <Typography style={{ fontSize: 20, fontFamily: "serif" }}>
-                {user?.email}
+                {data?.data?.email}
               </Typography>
             </div>
           </Col>

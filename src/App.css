@@ -1,0 +1,8 @@
+.cart-icon {
+    position: fixed;
+    right: 20px;
+    /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}

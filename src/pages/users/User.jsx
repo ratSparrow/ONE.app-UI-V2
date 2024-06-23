@@ -1,9 +1,12 @@
+import Profile from "../../components/user/Profile";
+
 const UserProfile = () => {
-    return (
-        <div>
-            Userprofile page coming soon...
-        </div>
-    );
+    
+  return (
+    <div>
+      <Profile />
+    </div>
+  );
 };
 
 export default UserProfile;

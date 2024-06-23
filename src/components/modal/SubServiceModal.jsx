@@ -2,8 +2,13 @@
 import { Button, Col, List, Modal, Row, Typography } from "antd";
 import { Link } from "react-router-dom";
 
-const SubServiceModal = ({ isModalOpen, handleOk, handleCancel, packages }) => {
-  console.log(packages);
+const SubServiceModal = ({
+  isModalOpen,
+  handleOk,
+  handleCancel,
+  packages,
+  handleAddToCart,
+}) => {
   return (
     <Modal
       title=<div
@@ -138,7 +143,7 @@ const SubServiceModal = ({ isModalOpen, handleOk, handleCancel, packages }) => {
                       size="small"
                       type="primary"
                     >
-                      <Link style={{}} to={`/checkout/${item._id}`}>
+                      <Link style={{}} onClick={() => handleAddToCart(item)}>
                         {" "}
                         <span>Add</span>{" "}
                       </Link>

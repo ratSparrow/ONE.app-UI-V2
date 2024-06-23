@@ -9,11 +9,16 @@ import {
   RightOutlined,
 } from "@ant-design/icons";
 import SubServiceModal from "../modal/SubServiceModal";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slice/features/cart/cartSlice";
+import toast from "react-hot-toast";
+import { addToDb } from "../../services/fakedb";
 
 const DetailsComponent = ({ detailsService, packages }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const originalDateStr = detailsService.createdAt;
   const date = new Date(originalDateStr);
+  const dispatch = useDispatch();
 
   const formattedDate = format(date, "yyyy-MM-dd");
 
@@ -25,6 +30,13 @@ const DetailsComponent = ({ detailsService, packages }) => {
   };
   const handleCancel = () => {
     setIsModalOpen(false);
+  };
+
+  const handleAddToCart = (item) => {
+    console.log(item);
+    dispatch(addToCart(item));
+    addToDb(item._id);
+    toast.success("Added Product to the cart");
   };
   return (
     <div
@@ -128,7 +140,6 @@ const DetailsComponent = ({ detailsService, packages }) => {
                   className="cardModalBtn"
                 >
                   <span style={{ color: "blueviolet" }}>
-                    {" "}
                     {item.name.slice(0, 25)}..
                   </span>
                   <span style={{ color: "blueviolet", fontWeight: 700 }}>
@@ -140,6 +151,7 @@ const DetailsComponent = ({ detailsService, packages }) => {
                   handleOk={handleOk}
                   handleCancel={handleCancel}
                   packages={packages}
+                  handleAddToCart={handleAddToCart}
                 />
               </div>
             ))}

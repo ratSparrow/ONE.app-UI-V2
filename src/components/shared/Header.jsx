@@ -12,7 +12,7 @@ const Header = () => {
   const loggedInUser = getUserInfo();
   const navigate = useNavigate();
 
-  console.log(loggedInUser);
+  // console.log(loggedInUser);
   const handleLogout = () => {
     removeUserInfo(authKey);
     removeUserRoleInfo(role);
