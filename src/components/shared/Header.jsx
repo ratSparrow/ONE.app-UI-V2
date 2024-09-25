@@ -7,6 +7,7 @@ import {
   removeUserRoleInfo,
 } from "../../services/auth.service";
 import { Avatar, Button } from "antd";
+import logo from "../../assets/logo/logo1.png"
 
 const Header = () => {
   const loggedInUser = getUserInfo();
@@ -19,7 +20,7 @@ const Header = () => {
     navigate("/sign-in");
   };
   return (
-    <div style={{ backgroundColor: "#6B5B95" }}>
+    <div style={{ backgroundColor: "#7E45EF" }}>
       <div
         style={{
           display: "flex",
@@ -34,45 +35,7 @@ const Header = () => {
       >
         <div>
           <Link to="/">
-            <div
-              style={{
-                fontFamily: "sans-serif",
-                font: "icon",
-                paddingLeft: "16px",
-              }}
-            >
-              <span
-                style={{
-                  color: "tomato",
-                  fontWeight: "700",
-                  fontSize: "24px",
-                  fontFamily: "Black Ops One, cursive",
-                }}
-              >
-                ONE
-              </span>
-              <div
-                style={{
-                  fontSize: "24px",
-
-                  display: "inline-block",
-                  width: "4px",
-                  height: "4px",
-                  backgroundColor: "yellow",
-                  borderRadius: "4px",
-                }}
-              ></div>
-              <span
-                style={{
-                  font: "icon",
-                  fontStyle: "italic",
-                  color: "yellowgreen",
-                  fontFamily: "Black Ops One, cursive",
-                }}
-              >
-                app
-              </span>
-            </div>
+            <img style={{width:"100px"}} src={logo} alt="" />
           </Link>
         </div>
         <div

@@ -1,0 +1,2 @@
+primary-color : #5E17EB
+secondary-color : #7E45EF

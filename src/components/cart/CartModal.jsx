@@ -19,7 +19,7 @@ const CartModal = () => {
             </span>
           </h3>
 
-          {services.map((product) => (
+          {services?.map((product) => (
             <Cart key={product._id} services={services} product={product} />
           ))}
 
