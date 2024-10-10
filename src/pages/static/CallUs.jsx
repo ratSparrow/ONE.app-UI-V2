@@ -41,7 +41,7 @@ const CallUs = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                minHeight: "100vh",
+                minHeight: "40vh",
               }}
             >
               Coming Soon...

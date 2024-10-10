@@ -53,6 +53,7 @@ const HomeServiceModal = ({ handleCancel, handleOk, isModalOpen, services }) => 
         onOk={handleOk}
         onCancel={handleCancel}
         width={700}
+        
       >
         <Layout>
           <Sider

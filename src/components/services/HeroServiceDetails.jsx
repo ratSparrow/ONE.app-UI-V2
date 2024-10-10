@@ -10,6 +10,9 @@ const HeroServiceDetails = ({ detailsService }) => {
         className="contentImage"
         src={detailsService?.images}
         alt={detailsService?.title}
+        style={{
+          height:"60vh"
+        }}
       />
     </div>
   );
