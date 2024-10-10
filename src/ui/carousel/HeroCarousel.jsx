@@ -45,6 +45,7 @@ const HeroCarousel = () => {
                 width: "100%",
                 height: "600px",
                 opacity: ".9",
+                height:"70vh"
               }}
             />
           </div>
@@ -57,6 +58,7 @@ const HeroCarousel = () => {
                 width: "100%",
                 height: "600px",
                 opacity: ".9",
+                height:"70vh"
               }}
             />
           </div>
@@ -69,6 +71,7 @@ const HeroCarousel = () => {
                 width: "100%",
                 height: "600px",
                 opacity: ".9",
+                height:"70vh"
               }}
             />
           </div>
@@ -81,6 +84,7 @@ const HeroCarousel = () => {
                 width: "100%",
                 height: "600px",
                 opacity: ".9",
+                height:"70vh"
               }}
             />
           </div>
