@@ -17,7 +17,7 @@ import ServiceOrder from "../../components/home/static/ServiceOrder";
 import HomeServiceModal from "../../components/home/sub-services/HomeServiceModal";
 import { useGetAllServicesQuery } from "../../redux/slice/api/servicesApi";
 import Loading from "../../ui/common/Loading";
-import HomeServiceCard from "../../components/home/services/HomeServiceCard";
+import  HomeServiceCard from "../../components/home/services/HomeServiceCard";
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);

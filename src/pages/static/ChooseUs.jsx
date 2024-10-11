@@ -48,6 +48,7 @@ const ChooseUs = () => {
             }}
           ></div>
           <Typography
+            className="animated-top"
             style={{
               color: "#C02B69",
               display: "inline-block",

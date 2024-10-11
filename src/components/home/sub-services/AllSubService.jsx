@@ -18,7 +18,7 @@ const AllSubServices = () => {
   // console.log("useGetAllSubServicesQuery",data)
   return (
     <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>
-      <h1 style={{ fontSize: "24px", color: "blueviolet", margin: "16px 0" }}>
+      <h1 className="animated-bottom" style={{ fontSize: "24px", color: "blueviolet", margin: "16px 0" }}>
         <span style={{ borderBottom: "2px solid blueviolet" }}>
           More Of Our Services
         </span>
@@ -28,6 +28,7 @@ const AllSubServices = () => {
           <Col key={item._id} xs={24} sm={8} md={8} lg={6}>
             <Link to={`/services/details/${item._id}`}>
               <Card
+              className="animated-right"
                 key={item._id}
                 hoverable
                 style={{
