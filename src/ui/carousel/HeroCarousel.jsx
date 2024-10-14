@@ -55,7 +55,7 @@ const HeroCarousel = () => {
               alt=""
               style={{
                 width: "100%",
-                height: "600px",
+               
                 opacity: ".9",
                 height:"70vh"
               }}
@@ -68,7 +68,7 @@ const HeroCarousel = () => {
               alt=""
               style={{
                 width: "100%",
-                height: "600px",
+               
                 opacity: ".9",
                 height:"70vh"
               }}
@@ -81,7 +81,7 @@ const HeroCarousel = () => {
               alt=""
               style={{
                 width: "100%",
-                height: "600px",
+               
                 opacity: ".9",
                 height:"70vh"
               }}
