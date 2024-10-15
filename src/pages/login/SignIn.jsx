@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useUserLoginMutation } from "../../redux/slice/api/userApi";
 import { storeUserInfo, storeUserRole } from "../../services/auth.service";
-
+import { FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/SignUp.css";
 import { ADMIN, USER } from "../../constants/common/user-constant";
@@ -111,19 +111,13 @@ const SignIn = () => {
                     borderRadius: "8px",
                   }}
                 >
-                  <Typography
-                    style={{
-                      textAlign: "center",
-                      fontSize: 20,
-                      color: "#6E58D8",
-                      fontWeight: 600,
-                      paddingBottom: 16,
-                    }}
-                  >
-                    <span style={{ borderBottom: "2px solid" }}> SIGN IN</span>
-                  </Typography>
+
+                  <h2 style={{ fontSize: "96px", textAlign: "center" }}>
+                    <FaUser style={{ border: "2px solid #6E58D8", color: "#6E58D8", borderRadius: "54px", padding: "16px" }} />
+                  </h2>
 
                   <form onSubmit={handleSubmit(onSubmit)}>
+
                     <label
                       style={{
                         fontSize: 14,
@@ -147,6 +141,7 @@ const SignIn = () => {
                       type="email"
                       className="customInput"
                     />
+
                     <label
                       style={{
                         fontSize: 14,

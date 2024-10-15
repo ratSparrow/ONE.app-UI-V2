@@ -50,7 +50,7 @@ export default function HomePage() {
       <AllSubServices />
       <ChooseUs />
       <AllEvents />
-      <CallUs />
+      {/* <CallUs /> */}
       <UpcomingService />
       <AllBlogs />
       <Feedback />

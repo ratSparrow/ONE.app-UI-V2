@@ -10,6 +10,7 @@ import { storeUserInfo } from "../../services/auth.service";
 import { Link, Navigate } from "react-router-dom";
 import "../css/SignUp.css";
 import toast from "react-hot-toast";
+import { FaUser } from "react-icons/fa";
 
 const { Text } = Typography;
 
@@ -28,12 +29,27 @@ const SignUp = () => {
 
   const onSubmit = async (data) => {
     setLoading(true);
+    
+    const signUpData = {
+      name:{
+        firstName:data.firstName,
+        lastName:data.lastName
+      },
+      email:data.email,
+      password:data.password,
+      phoneNumber:data.phoneNumber
+    }
+    const loginData = {
+      email:data.email,
+      password:data.password,
+    }
+    console.log(signUpData)
 
     try {
-      const res = await userSignUp(data);
+      const res = await userSignUp(signUpData);
 
       if (res.data.statusCode === 200) {
-        const res = await userLogin(data);
+        const res = await userLogin(loginData);
         console.log(res.data.statusCode);
         if (res.data.statusCode === 200) {
           const { accessToken, role, email } = res.data.data;
@@ -41,8 +57,9 @@ const SignUp = () => {
           setSuccessMessage(res.message);
           toast("User created successfully");
           if (accessToken) {
-            console.log("object");
             <Navigate to="/user/profile" state={{ from: location }} replace />;
+            console.log("object");
+            console.log(accessToken)
           } else {
             <Navigate to="/login" state={{ from: location }} replace />;
           }
@@ -60,6 +77,7 @@ const SignUp = () => {
 
   return (
     <section>
+
       <Row justify="space-between">
         <Col className="gutter-row" span={12}>
           <div
@@ -111,19 +129,59 @@ const SignUp = () => {
                     borderRadius: 8,
                   }}
                 >
-                  <Typography
-                    style={{
-                      textAlign: "center",
-                      fontSize: 20,
-                      color: "#6E58D8",
-                      fontWeight: 600,
-                      paddingBottom: 16,
-                    }}
-                  >
-                    <span style={{ borderBottom: "2px solid" }}> SIGN UP</span>
-                  </Typography>
+
+                  <h2 style={{ fontSize: "96px", textAlign: "center" }}>
+                    <FaUser style={{ border: "2px solid #6E58D8", color: "#6E58D8", borderRadius: "54px", padding: "16px" }} />
+                  </h2>
+
 
                   <form onSubmit={handleSubmit(onSubmit)}>
+                  <label
+                      style={{
+                        fontSize: 14,
+                        fontWeight: 600,
+                        color: "#6E58D8",
+                      }}
+                    >
+                      First Name
+                    </label>
+                    <input
+                      {...register("firstName", {
+                        required: "First Name is required",
+                      })}
+                      placeholder="Enter First Name "
+                      style={{
+                        marginBottom: 14,
+                        width: "100%",
+                        height: "24px",
+                        borderRadius: "4px",
+                      }}
+                      type="text"
+                      className="customInput"
+                    />
+                    <label
+                      style={{
+                        fontSize: 14,
+                        fontWeight: 600,
+                        color: "#6E58D8",
+                      }}
+                    >
+                      Last Name
+                    </label>
+                    <input
+                      {...register("lastName", {
+                        required: "Last Name is required",
+                      })}
+                      placeholder="Enter Last Name "
+                      style={{
+                        marginBottom: 14,
+                        width: "100%",
+                        height: "24px",
+                        borderRadius: "4px",
+                      }}
+                      type="text"
+                      className="customInput"
+                    />
                     <label
                       style={{
                         fontSize: 14,
