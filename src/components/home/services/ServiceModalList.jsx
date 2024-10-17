@@ -3,7 +3,7 @@ import { Card } from "antd";
 import { Link } from "react-router-dom";
 
 const ServiceModalList = ({ value }) => {
-  console.log(value._id);
+  // console.log(value._id);
   return (
     <Link to={`/services/details/${value._id}`}>
       <Card

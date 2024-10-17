@@ -9,7 +9,7 @@ const { Meta } = Card;
 
 const HomeServiceCard = ({ showModal }) => {
   const { data,isLoading } = useGetAllServicesQuery();
-    console.log("useGetAllServicesQuery", data?.data)
+    
   if (isLoading) {
     return (
      <Loading/>

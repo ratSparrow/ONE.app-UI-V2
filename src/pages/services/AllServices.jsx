@@ -74,7 +74,7 @@ const AllService = () => {
                   id={`${item._id}`}
                   style={{ fontSize: 20, fontWeight: 600, color: 'tomato' }}
                 >
-                  {console.log(item.name)}
+                  {item.name}
                 </Typography>
               </div>
               <div style={{ margin: 16 }}>

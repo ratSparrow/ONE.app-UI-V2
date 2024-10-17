@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addToCart,
   removeFromCart,
@@ -10,8 +10,10 @@ import {
 } from "../../redux/slice/features/cart/cartSlice";
 
 const Cart = ({ product }) => {
-  const { img, quantity, price, name } = product;
-  const totalPrice = Number(quantity * price).toFixed(2);
+  // const { img, quantity, price, name } = product;
+  // const totalPrice = Number(quantity * price).toFixed(2);
+  const services = useSelector(state=>state.cart?.services)
+  console.log("services",services)
   const dispatch = useDispatch();
   const handleRemove = (item) => {
     dispatch(removeFromCart(item));
@@ -25,7 +27,7 @@ const Cart = ({ product }) => {
 
   return (
     <React.Fragment>
-      <div className=" w-full border-b-2 border-slate-300 mb-5">
+      {/* <div className=" w-full border-b-2 border-slate-300 mb-5">
         <div className="m-1 grid grid-cols-3 gap-2">
           <figure className="">
             <img className="w-1/4 rounded" src={img} alt="" />
@@ -61,7 +63,8 @@ const Cart = ({ product }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      this is cart
     </React.Fragment>
   );
 };

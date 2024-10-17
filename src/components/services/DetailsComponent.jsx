@@ -33,7 +33,7 @@ const DetailsComponent = ({ detailsService, packages }) => {
   };
 
   const handleAddToCart = (item) => {
-    console.log(item);
+    console.log("handleAddToCart",item);
     dispatch(addToCart(item));
     addToDb(item._id);
     toast.success("Added Product to the cart");

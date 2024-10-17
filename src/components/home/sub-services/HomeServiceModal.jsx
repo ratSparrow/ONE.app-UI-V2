@@ -9,28 +9,28 @@ import { getBaseUrl } from "../../../helpers/config/envConfig";
 
 const HomeServiceModal = ({ handleCancel, handleOk, isModalOpen, services }) => {
   const [selectedValue, setSelectedValue] = useState(null);
-  const [serviceId, setServiceId] = useState(null);
+  const [serviceid, setServiceId] = useState(null);
   const [subCategory, setSubCategory] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const url = `${getBaseUrl()}/api/v1/sub-services/serviceId/${serviceId}`;
+  const url = `${getBaseUrl()}/api/v1/sub-services/serviceid/${serviceid}`;
 
   useEffect(() => {
     setLoading(true);
-    if (serviceId) {
+    if (serviceid) {
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
           setSubCategory(data);
-          console.log("setSubCategory",data)
+          // console.log("setSubCategory",data)
           setLoading(false);
         });
     }
-  }, [serviceId]);
+  }, [serviceid]);
 
   const getSubCategory = () => {
     return services?.data.map((service) => ({
-      serviceId: `${service._id}`,
+      serviceid: `${service._id}`,
       key: `${service._id}`,
       label: `${service.name}`,
     }));

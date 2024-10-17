@@ -40,9 +40,10 @@ const SubServiceModal = ({
               margin: 8,
               flexDirection: "column",
             }}
+          
           >
             {packages?.data.map((item) => (
-              <>
+             
                 <Col
                   style={{
                     padding: 16,
@@ -57,6 +58,7 @@ const SubServiceModal = ({
                       justifyContent: "space-between",
                       alignItems: "center",
                     }}
+                    key={item._id}
                   >
                     <div>
                       <img
@@ -151,7 +153,7 @@ const SubServiceModal = ({
                   </div>
                   <hr />
                 </Col>
-              </>
+              
             ))}
           </Row>
         </Col>
