@@ -5,11 +5,16 @@ import { Link } from 'react-router-dom';
 import { Avatar, Breadcrumb, Button, Typography } from 'antd';
 import Loading from '../../ui/common/Loading';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+import { useGetAllOrderQuery } from '../../redux/slice/api/orderApi';
 const { Title } = Typography;
 
 const ViewOrder = () => {
 
-    const { data, isLoading } = useGetAllUserQuery();
+    const { data, isLoading } = useGetAllOrderQuery();
+    console.log(data)
+
+    const orderServiceId = data?.data.filter(order => order)
+    console.log(orderServiceId)
 
     return (
         <div style={{ margin: 32 }}>
@@ -42,32 +47,39 @@ const ViewOrder = () => {
                         <table className="custom-table">
                             <thead>
                                 <tr>
-                                    <th>Photo</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
+                                    <th>ID</th>
+                                    <th>User</th>
+                                    <th>Order</th>
                                     <th>Contact</th>
+                                    <th>Slot</th>
                                     <th>Location</th>
-                                    <th>Action</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    {/* <th>Action</th> */}
 
                                 </tr>
                             </thead>
                             <tbody>
-                                {data?.data.map((record) => (
+                                {data?.data.map((record, index) => (
                                     <tr key={record._id}>
+                                        <td>{index + 1}</td>
+                                        <td>{record.user} </td>
+                                        <td>{record.order.name}</td>
+                                        <td>{record.phone}</td>
+                                        <td>{record.slot}</td>
                                         <td>
-                                            {
-                                                record.profileImg ?
-                                                    <img src={record.profileImg} alt="" /> :
-                                                    <Avatar size="small" icon={<UserOutlined />} />}
+                                            {record?.address.house ? record.address.house + ', ' : ''}
+                                            {record?.address.road ? 'Road ' + record.address.road + ', ' : ''}
+                                            {record?.address.block ? 'Block ' + record?.address.block + ', ' : ''}
+                                            {record?.address.sector ? 'Sector ' + record.address.sector + ', ' : ''}
+                                            {record.address.area || ''}
                                         </td>
-                                        <td>{record.name.firstName} {record.name.lastName}</td>
-                                        <td>{record.email}</td>
-                                        <td>{record.phoneNumber}</td>
-                                        <td>{record.address}</td>
-                                        <td>
+                                        <td>{record.status}</td>
+                                        <td>{record.createdAt.slice(0, 10)}</td>
+                                        {/* <td>
                                             <Button type='link' style={{ marginRight: 10 }}><Link to="">Edit</Link> </Button>
                                             <Button type='primary' color='danger' variant='filled'>Delete</Button>
-                                        </td>
+                                        </td> */}
 
                                     </tr>
                                 ))}
