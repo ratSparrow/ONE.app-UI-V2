@@ -6,7 +6,7 @@ import SignIn from '../pages/login/SignIn';
 import AdminLayout from '../layout/AdminLayout';
 import AllService from "../pages/services/AllServices";
 
-import EditAdmin from "../pagesEditAdmin";
+
 
 import ServiceDetails from "../pages/services/ServiceDetails";
 import AllBlogs from "../pages/blogs/AllBlogs";
@@ -31,7 +31,7 @@ import CallUs from "../pages/static/CallUs";
 import ChooseUs from "../pages/static/ChooseUs";
 import SuperAdminLayout from "../layout/SuperAdminLayout";
 import SuperAdminProfile from "../pages/super-admin/SuperAdmin";
-import AdminProfile from "../pagesAdmin";
+
 import EditSuperAdmin from "../pages/super-admin/EditSuperAdmin";
 import DeleteSuperAdmin from "../pages/super-admin/DeleteSuperAdmin";
 import DeleteAdmin from "../pages/super-admin/DeleteAdmin";
@@ -42,6 +42,8 @@ import AllUsers from "../pages/users/AllUsers";
 
 import CheckoutService from "../pages/checkout/CheckoutService";
 import UserProfile from "../pages/users/User";
+import EditAdmin from "../pages/admin/EditAdmin";
+import AdminProfile from "../pages/admin/Admin";
 
 const MainRoutes = createBrowserRouter([
   {

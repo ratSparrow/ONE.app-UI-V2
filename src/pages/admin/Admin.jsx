@@ -30,7 +30,7 @@ const AdminProfile = () => {
               title: "Admin",
             },
             {
-              title: <Link href="/admin/view-profile">Account</Link>,
+              title: <Link href="/admin/view">Account</Link>,
             },
           ]}
         />

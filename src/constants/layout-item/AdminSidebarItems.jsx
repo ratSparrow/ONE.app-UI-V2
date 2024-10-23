@@ -31,18 +31,6 @@ export const AdminSidebarItems = () => {
       ],
     },
     {
-      label: "Admin",
-      key: "admin",
-      icon: <UsergroupAddOutlined />,
-      children: [
-        {
-          label: <Link to="/admin">View </Link>,
-          key: "view user",
-          icon: <UserOutlined />,
-        },
-      ],
-    },
-    {
       label: "Services",
       key: "services",
       icon: <UnorderedListOutlined />,

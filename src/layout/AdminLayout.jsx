@@ -9,20 +9,7 @@ import { AdminSidebarItems } from "../constants/layout-item/AdminSidebarItems";
 
 
 const { Sider, Content } = Layout;
-// function getItem(label, key, icon, children) {
-//   return {
-//     key,
-//     icon,
-//     children,
-//     label,
-//   };
-// }
 
-// const items = [
-//   getItem("Option 1", "1", <PieChartOutlined />),
-//   getItem("Option 2", "2", <DesktopOutlined />),
-//   getItem("Files", "9", <FileOutlined />),
-// ];
 
 const AdminLayout = () => {
   const loggedInUser = isLoggedIn();
@@ -57,6 +44,7 @@ const AdminLayout = () => {
               top: 0,
               bottom: 0,
               left: 0,
+              width:"400px"
             }}
           >
             <h1
