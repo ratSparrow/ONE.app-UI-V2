@@ -44,6 +44,7 @@ import CheckoutService from "../pages/checkout/CheckoutService";
 import UserProfile from "../pages/users/User";
 import EditAdmin from "../pages/admin/EditAdmin";
 import AdminProfile from "../pages/admin/Admin";
+import ViewServices from "../pages/services/ViewServices";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -171,7 +172,7 @@ const MainRoutes = createBrowserRouter([
       },
       {
         path: "services/view",
-        element: <AddService />,
+        element: <ViewServices />,
       },
       {
         path: "services/add",

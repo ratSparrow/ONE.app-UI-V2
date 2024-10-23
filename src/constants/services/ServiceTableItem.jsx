@@ -7,7 +7,7 @@ export const ServiceTableItem = () => {
     },
 
     {
-      title: "CreatedAt",
+      title: "Creation Date",
       dataIndex: "createdAt",
       key: "createdAt",
     },
