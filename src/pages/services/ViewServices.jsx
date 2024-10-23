@@ -49,7 +49,7 @@ const ViewServices = () => {
                   <th>Name</th>
                   <th>Created At</th>
                   <th>Action</th>
-              
+
                 </tr>
               </thead>
               <tbody>
@@ -68,7 +68,7 @@ const ViewServices = () => {
                       <Button type='link' style={{ marginRight: 10 }}><Link to="">Edit</Link> </Button>
                       <Button type='primary' color='danger' variant='filled'>Delete</Button>
                     </td>
-                  
+
                   </tr>
                 ))}
               </tbody>

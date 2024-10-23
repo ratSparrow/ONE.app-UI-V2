@@ -5,6 +5,7 @@ import { useAddServicesMutation } from "../../redux/slice/api/servicesApi";
 import { HomeOutlined } from "@ant-design/icons";
 import CustomForm from "../../components/forms/CustomForm";
 import CustomInput from "../../components/forms/CustomInput";
+const { Title } = Typography;
 
 const AddService = () => {
   const [addServices] = useAddServicesMutation();
@@ -20,7 +21,8 @@ const AddService = () => {
   };
   return (
     <div style={{ margin: 32 }}>
-      <div>
+
+      <div style={{ margin: 32 }}>
         <Breadcrumb
           items={[
             {
@@ -31,20 +33,22 @@ const AddService = () => {
               ),
             },
             {
-              title: "Service",
+              title: <Link to="/admin">Admin</Link>,
             },
             {
-              title: <Link href="/services/add-service">Add Service</Link>,
+              title: <Link to="/services/view">View Services</Link>,
+            },
+            {
+              title: <Link to="/services/add">Add Services</Link>,
             },
           ]}
         />
       </div>
-      <div>
-        <div>
-          <Typography style={{ fontSize: 22, fontWeight: 700 }}>
-            Create Service
-          </Typography>
-        </div>
+
+      <Title level={3} style={{ margin: 32 }}>
+        Add New Service 
+      </Title>
+      <div style={{ margin: 32 }}>
         <CustomForm submitHandler={onSubmit}>
           <div
             style={{
@@ -85,10 +89,11 @@ const AddService = () => {
             </Button>
           </div>
         </CustomForm>
+
+        {message && (
+          <Alert style={{ margin: 16 }} message={message} type="success" />
+        )}
       </div>
-      {message && (
-        <Alert style={{ margin: 16 }} message={message} type="success" />
-      )}
     </div>
   );
 };
