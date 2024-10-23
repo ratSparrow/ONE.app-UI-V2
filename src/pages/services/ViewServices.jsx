@@ -2,7 +2,7 @@ import { Avatar, Breadcrumb, Button, Table, Typography } from "antd";
 import { useGetAllServicesQuery } from "../../redux/slice/api/servicesApi";
 import { Link } from "react-router-dom";
 import { HomeOutlined, UserOutlined } from "@ant-design/icons";
-import { ServiceTableItem } from "../../constants/services/ServiceTableItem";
+
 import Loading from "../../ui/common/Loading";
 const { Title } = Typography;
 
