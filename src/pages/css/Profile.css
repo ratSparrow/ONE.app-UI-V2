@@ -1,0 +1,59 @@
+/* Background and Layout */
+.profile-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Avatar and Profile Details */
+  .profile-avatar {
+    background: linear-gradient(45deg, #1890ff, #87d068);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .profile-role {
+    color: #999;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  /* Tabs Styling */
+  .profile-tabs .ant-tabs-nav .ant-tabs-tab-active {
+    font-weight: bold;
+  }
+  
+  .tab-content {
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+  }
+  
+  .tab-icon {
+    color: #1890ff;
+    margin-right: 8px;
+  }
+  
+  /* Buttons */
+  button.ant-btn-primary {
+    background: linear-gradient(45deg, #fa8c16, #ff7a45);
+    border: none;
+  }
+  
+  button.ant-btn-primary:hover {
+    background: linear-gradient(45deg, #ff9c6e, #ff541c);
+  }
+  

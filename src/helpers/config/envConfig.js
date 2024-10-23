@@ -1,5 +1,5 @@
 export const getBaseUrl = () => {
-  return "http://localhost:3000"; 
+  return "https://one-app-api-rafiulalam98.vercel.app"; 
 };
 
 

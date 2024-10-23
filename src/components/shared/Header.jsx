@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { authKey, role } from "../../constants/common/authKey";
 import { ExportOutlined, UserOutlined } from "@ant-design/icons";
+
 import {
   getUserInfo,
   removeUserInfo,
@@ -8,10 +9,18 @@ import {
 } from "../../services/auth.service";
 import { Avatar, Button } from "antd";
 import logo from "../../assets/logo/logo1.png"
+import { getFromLocalStorage } from "../../helpers/utils/saveData";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [token,setToken] = useState('')
+  useEffect(()=>{
+    const token = getFromLocalStorage()
+    setToken(token)
+  },[token])
   const loggedInUser = getUserInfo();
   const navigate = useNavigate();
+  console.log("token",token)
 
   // console.log(loggedInUser);
   const handleLogout = () => {
@@ -27,7 +36,7 @@ const Header = () => {
           justifyContent: "space-between",
           alignItems: "center",
           flexDirection: "row",
-          height: "64px",
+          height: "49px",
           width: "100%",
           margin: "0 auto",
           maxWidth: "1100px",
@@ -35,7 +44,7 @@ const Header = () => {
       >
         <div>
           <Link to="/">
-            <img style={{width:"100px"}} src={logo} alt="" />
+            <img style={{width:"75px"}} src={logo} alt="" />
           </Link>
         </div>
         <div
@@ -77,7 +86,8 @@ const Header = () => {
               </Link>
             </>
           )}
-          <div>
+          {
+            token && <div>
             {loggedInUser === "user" ? (
               <Link to="/user-profile">
                 <Avatar size="large" icon={<UserOutlined />} />
@@ -88,6 +98,7 @@ const Header = () => {
               </Link>
             )}
           </div>
+          }
         </div>
       </div>
     </div>

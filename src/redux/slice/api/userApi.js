@@ -1,11 +1,13 @@
+
 import { authKey } from "../../../constants/common/authKey";
 import { getFromLocalStorage } from "../../../helpers/utils/saveData";
 import { api } from "../api/apiSlice";
 
 const token = getFromLocalStorage(authKey);
 const headers = {
-  Authorization: `${token}`,
+  authorization: `${token}`,
 };
+
 
 const userApi = api.injectEndpoints({
   endpoints: (builder) => ({

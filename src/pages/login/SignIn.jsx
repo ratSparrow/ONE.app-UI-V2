@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../css/SignUp.css";
 import { ADMIN, USER } from "../../constants/common/user-constant";
 import toast from "react-hot-toast";
+import { GiFastBackwardButton } from "react-icons/gi";
 
 const { Text } = Typography;
 
@@ -27,9 +28,9 @@ const SignIn = () => {
   const [userLogin] = useUserLoginMutation();
 
   const onSubmit = async (data) => {
+    const res = await userLogin(data);
     try {
       setLoading(true);
-      const res = await userLogin(data);
 
       if (res.data.statusCode === 200) {
         const { accessToken, role } = res.data.data;
@@ -37,29 +38,30 @@ const SignIn = () => {
         storeUserInfo(accessToken);
         storeUserRole(role);
         setSuccessMessage(res.data.message);
-        console.log(res);
+
         toast.success(res.data.message);
 
-        if (role === USER) {
+        if (accessToken) {
           navigate("/user/profile");
-        } else if (role === ADMIN) {
-          navigate("/admin");
         } else {
-          navigate("/super-admin");
+          navigate("/login");
         }
 
         setLoading(false);
-        return <Alert message={res.message} type="success" />;
+
       }
+
     } catch (error) {
-      console.log(error);
-      <Alert message={error.message} type="error" />;
-      setErrorMessage(error.message);
+      setErrorMessage(res.error.data.message)
       setLoading(false);
     }
   };
   return (
     <section>
+      <div>
+        <Link style={{ textDecoration: "none" }} to="/"><GiFastBackwardButton style={{ marginTop: 4 }} />
+          <span style={{ marginBottom: 4 }}>Home</span></Link>
+      </div>
       <Row justify="space-between">
         <Col className="gutter-row" span={12}>
           <div
@@ -180,8 +182,7 @@ const SignIn = () => {
                       className="formBtn"
                       type="submit"
                     />
-
-                    {errorMessage ? (
+                    {errorMessage && (
                       <Text
                         style={{
                           padding: "8px 0",
@@ -191,19 +192,12 @@ const SignIn = () => {
                         }}
                         type="danger"
                       >
-                        {errorMessage}
-                      </Text>
-                    ) : (
-                      <Text
-                        style={{
-                          padding: "8px 0",
-                          display: "block",
-                          fontWeight: "700",
-                          fontSize: "24px",
-                        }}
-                        type="success"
-                      >
-                        {successMessage}
+                        <Alert
+                          message="Error"
+                          description={errorMessage}
+                          type="error"
+                          showIcon
+                        />
                       </Text>
                     )}
                     <Link style={{ textDecoration: "none" }} to="/sign-up">

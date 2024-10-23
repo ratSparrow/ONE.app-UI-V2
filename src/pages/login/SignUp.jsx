@@ -7,14 +7,15 @@ import {
   useUserSignupMutation,
 } from "../../redux/slice/api/userApi";
 import { storeUserInfo } from "../../services/auth.service";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../css/SignUp.css";
 import toast from "react-hot-toast";
 import { FaUser } from "react-icons/fa";
-
+import { GiFastBackwardButton } from "react-icons/gi";
 const { Text } = Typography;
 
 const SignUp = () => {
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -28,25 +29,28 @@ const SignUp = () => {
   const [userLogin] = useUserLoginMutation();
 
   const onSubmit = async (data) => {
+
     setLoading(true);
-    
+
+
     const signUpData = {
-      name:{
-        firstName:data.firstName,
-        lastName:data.lastName
+      name: {
+        firstName: data.firstName,
+        lastName: data.lastName
       },
-      email:data.email,
-      password:data.password,
-      phoneNumber:data.phoneNumber
+      email: data.email,
+      password: data.password,
+      phoneNumber: data.phoneNumber
     }
     const loginData = {
-      email:data.email,
-      password:data.password,
+      email: data.email,
+      password: data.password,
     }
     console.log(signUpData)
+    const res = await userSignUp(signUpData);
 
     try {
-      const res = await userSignUp(signUpData);
+
 
       if (res.data.statusCode === 200) {
         const res = await userLogin(loginData);
@@ -54,30 +58,29 @@ const SignUp = () => {
         if (res.data.statusCode === 200) {
           const { accessToken, role, email } = res.data.data;
           storeUserInfo(accessToken, role, email);
+          console.log(res)
           setSuccessMessage(res.message);
-          toast("User created successfully");
+          toast.success("User sign up successful");
           if (accessToken) {
-            <Navigate to="/user/profile" state={{ from: location }} replace />;
-            console.log("object");
-            console.log(accessToken)
-          } else {
-            <Navigate to="/login" state={{ from: location }} replace />;
+            navigate('/user/profile')
           }
-
           setLoading(false);
           return <Alert message={res.message} type="success" />;
         }
       }
     } catch (error) {
-      <Alert message={error.message} type="error" />;
-      setErrorMessage(error.message);
+
+      setErrorMessage(res.error.data.message);
       setLoading(false);
     }
   };
 
   return (
     <section>
-
+      <div>
+        <Link style={{ textDecoration: "none" }} to="/"><GiFastBackwardButton style={{ marginTop: 4 }} />
+          <span style={{ marginBottom: 4 }}>Home</span></Link>
+      </div>
       <Row justify="space-between">
         <Col className="gutter-row" span={12}>
           <div
@@ -136,7 +139,7 @@ const SignUp = () => {
 
 
                   <form onSubmit={handleSubmit(onSubmit)}>
-                  <label
+                    <label
                       style={{
                         fontSize: 14,
                         fontWeight: 600,
@@ -274,22 +277,25 @@ const SignUp = () => {
                         type="submit"
                       />
                     )}
-                    {errorMessage ? (
+                    {errorMessage && (
                       <Text
-                        style={{ display: "inline-block", padding: "8px" }}
+                        style={{
+                          padding: "8px 0",
+                          display: "block",
+                          fontWeight: "700",
+                          fontSize: "24px",
+                        }}
                         type="danger"
                       >
-                        {errorMessage}
-                      </Text>
-                    ) : (
-                      <Text
-                        style={{ display: "inline-block", padding: "8px" }}
-                        type="success"
-                      >
-                        {successMessage}
+                        <Alert
+                          message="Error"
+                          description={errorMessage}
+                          type="error"
+                          showIcon
+                        />
                       </Text>
                     )}
-                    <Link style={{ textDecoration: "none" }} to="/login">
+                    <Link style={{ textDecoration: "none" }} to="/sign-in">
                       <Typography className="formText">
                         Already have an account? Sign In
                       </Typography>{" "}

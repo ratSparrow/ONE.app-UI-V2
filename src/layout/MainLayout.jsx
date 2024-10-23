@@ -13,7 +13,7 @@ const MainLayout = () => {
   return (
     <Layout>
       <Header />
-      <Cart></Cart>
+      
 
       <Content style={{ minHeight: "100vh" }}>
         <Outlet />

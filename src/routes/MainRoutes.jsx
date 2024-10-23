@@ -52,14 +52,7 @@ const MainRoutes = createBrowserRouter([
         path: "/",
         element: <HomePage />,
       },
-      {
-        path: "/sign-up",
-        element: <SignUp />,
-      },
-      {
-        path: "/sign-in",
-        element: <SignIn />,
-      },
+     
       {
         path: "/call-us",
         element: <CallUs />,
@@ -209,6 +202,14 @@ const MainRoutes = createBrowserRouter([
         element: <DeleteAdmin />,
       },
     ],
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
+  },
+  {
+    path: "/sign-in",
+    element: <SignIn />,
   },
 ]);
 export default MainRoutes;
