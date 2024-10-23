@@ -11,13 +11,7 @@ const AddService = () => {
   const [addServices] = useAddServicesMutation();
   const [message, setMessage] = useState("");
   const onSubmit = async (data) => {
-    try {
-      const res = await addServices(data);
-      console.log(res);
-      setMessage(res.data.message);
-    } catch (error) {
-      console.log(error);
-    }
+    console.log(data)
   };
   return (
     <div style={{ margin: 32 }}>
@@ -46,7 +40,7 @@ const AddService = () => {
       </div>
 
       <Title level={3} style={{ margin: 32 }}>
-        Add New Service 
+        Add New Service
       </Title>
       <div style={{ margin: 32 }}>
         <CustomForm submitHandler={onSubmit}>
