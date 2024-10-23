@@ -13,15 +13,14 @@ const Profile = () => {
 
   const { data, isLoading } = useGetUserProfileQuery();
   
-
-
-
   if (isLoading) {
     return <Loading />;
   }
   return (
     <Layout style={{ minHeight: '100vh', background: '#f0f2f5' }}>
-      <Content style={{ padding: '50px' }}>
+      {
+        isLoading === true ? <Loading/> :
+        <Content style={{ padding: '50px' }}>
         <Row justify="center">
           <Col xs={24} md={16} lg={12}>
             <Card className="profile-card" bordered={false}>
@@ -69,6 +68,7 @@ const Profile = () => {
           </Col>
         </Row>
       </Content>
+      }
     </Layout>
   );
 };
