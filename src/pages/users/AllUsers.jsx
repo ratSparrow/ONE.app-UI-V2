@@ -8,7 +8,7 @@ import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 const { Title } = Typography;
 
 const AllUsers = () => {
-    // Define the data for the table
+
     const { data, isLoading } = useGetAllUserQuery();
 
     return (
@@ -32,7 +32,7 @@ const AllUsers = () => {
                     ]}
                 />
             </div>
-            <Title level={3} style={{ marginBottom: 24 }}>
+            <Title level={3} style={{ margin: 32 }}>
                 User Management
             </Title>
             {

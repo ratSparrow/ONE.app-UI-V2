@@ -1,15 +1,17 @@
-import { Breadcrumb, Button, Table } from "antd";
+import { Avatar, Breadcrumb, Button, Table, Typography } from "antd";
 import { useGetAllServicesQuery } from "../../redux/slice/api/servicesApi";
 import { Link } from "react-router-dom";
-import { HomeOutlined } from "@ant-design/icons";
+import { HomeOutlined, UserOutlined } from "@ant-design/icons";
 import { ServiceTableItem } from "../../constants/services/ServiceTableItem";
 import Loading from "../../ui/common/Loading";
+const { Title } = Typography;
 
 const ViewServices = () => {
   const { data, isLoading } = useGetAllServicesQuery();
-  console.log(data?.data);
+  console.log(data)
+
   return (
-    <div>
+    <div style={{ margin: 32 }}>
       <div style={{ margin: 32 }}>
         <Breadcrumb
           items={[
@@ -21,26 +23,58 @@ const ViewServices = () => {
               ),
             },
             {
-              title: "Services",
+              title: <Link to="/admin">Admin</Link>,
             },
             {
-              title: <Link href="view-service">View Users</Link>,
+              title: <Link to="/services/view">View Services</Link>,
+            },
+            {
+              title: <Link to="/services/add">Add Services</Link>,
             },
           ]}
         />
       </div>
-      <div style={{ margin: "4px 32px" }}>
-        <Button type="primary">
-          <Link href="/services/add-service">Add Service</Link>
-        </Button>
-      </div>
-
-      {isLoading === true ? <Loading /> : <Table
-        style={{ maxWidth: 800, margin: "0 auto" }}
-        columns={ServiceTableItem()}
-        dataSource={data?.data}
-      />}
-
+      <Title level={3} style={{ margin: 32 }}>
+        Service Management
+      </Title>
+      {
+        isLoading === true ?
+          <Loading /> :
+          <div className="table-container">
+            <table className="custom-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Photo</th>
+                  <th>Name</th>
+                  <th>Created At</th>
+                  <th>Action</th>
+              
+                </tr>
+              </thead>
+              <tbody>
+                {data?.data.map((record, i) => (
+                  <tr key={record._id}>
+                    <td>{i + 1}</td>
+                    <td>
+                      {
+                        record.image ?
+                          <img style={{ width: "60px", height: "60px", borderRadius: "30px" }} src={record.image} alt="" /> :
+                          <Avatar size="small" icon={<UserOutlined />} />}
+                    </td>
+                    <td>{record.name}</td>
+                    <td>{record.createdAt.slice(0, 10)} </td>
+                    <td>
+                      <Button type='link' style={{ marginRight: 10 }}><Link to="">Edit</Link> </Button>
+                      <Button type='primary' color='danger' variant='filled'>Delete</Button>
+                    </td>
+                  
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+      }
     </div>
   );
 };
