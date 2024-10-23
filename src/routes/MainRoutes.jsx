@@ -47,6 +47,9 @@ import AdminProfile from "../pages/admin/Admin";
 import ViewServices from "../pages/services/ViewServices";
 import ViewSubCategory from "../pages/sub-category/ViewSubCategory";
 import AddSubCategory from "../pages/sub-category/AddSubCategory";
+import ViewOrder from "../pages/order/ViewOrder";
+import EditOrder from "../pages/order/EditOrder";
+import DeleteOrder from "../pages/order/DeleteOrder";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -139,6 +142,18 @@ const MainRoutes = createBrowserRouter([
       {
         path: "blog/delete/:id",
         element: <DeleteBlog />,
+      },
+      {
+        path: "order/view",
+        element: <ViewOrder />,
+      },
+      {
+        path: "order/edit/:id",
+        element: <EditOrder />,
+      },
+      {
+        path: "order/delete/:id",
+        element: <DeleteOrder />,
       },
       {
         path: "event/view",

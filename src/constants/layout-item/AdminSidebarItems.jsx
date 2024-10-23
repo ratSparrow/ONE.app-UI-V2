@@ -2,6 +2,7 @@ import {
   ContainerOutlined,
   DeploymentUnitOutlined,
   ExportOutlined,
+  OrderedListOutlined,
   QuestionCircleOutlined,
   StockOutlined,
   UnorderedListOutlined,
@@ -26,6 +27,18 @@ export const AdminSidebarItems = () => {
         {
           label: <Link to="user/view">View </Link>,
           key: "view user",
+          icon: <UserOutlined />,
+        },
+      ],
+    },
+    {
+      label: "Order",
+      key: "order",
+      icon: <OrderedListOutlined />,
+      children: [
+        {
+          label: <Link to="order/view">View </Link>,
+          key: "view order",
           icon: <UserOutlined />,
         },
       ],
