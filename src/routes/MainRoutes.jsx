@@ -6,7 +6,7 @@ import SignIn from '../pages/login/SignIn';
 import AdminLayout from '../layout/AdminLayout';
 import AllService from "../pages/services/AllServices";
 
-import EditAdmin from "../pages/admin/EditAdmin";
+import EditAdmin from "../pagesEditAdmin";
 
 import ServiceDetails from "../pages/services/ServiceDetails";
 import AllBlogs from "../pages/blogs/AllBlogs";
@@ -31,7 +31,7 @@ import CallUs from "../pages/static/CallUs";
 import ChooseUs from "../pages/static/ChooseUs";
 import SuperAdminLayout from "../layout/SuperAdminLayout";
 import SuperAdminProfile from "../pages/super-admin/SuperAdmin";
-import AdminProfile from "../pages/admin/Admin";
+import AdminProfile from "../pagesAdmin";
 import EditSuperAdmin from "../pages/super-admin/EditSuperAdmin";
 import DeleteSuperAdmin from "../pages/super-admin/DeleteSuperAdmin";
 import DeleteAdmin from "../pages/super-admin/DeleteAdmin";
@@ -116,63 +116,143 @@ const MainRoutes = createBrowserRouter([
         element: <AdminProfile />,
       },
       {
-        path: "/admin/edit/:id",
+        path: "edit/:id",
         element: <EditAdmin />,
       },
       {
-        path: "/admin/blog/add",
+        path: "blog/view",
         element: <AddNewBlog />,
       },
       {
-        path: "/admin/blog/edit/:id",
+        path: "blog/add",
+        element: <AddNewBlog />,
+      },
+      {
+        path: "blog/edit/:id",
         element: <EditBlog />,
       },
       {
-        path: "/admin/blog/delete/:id",
+        path: "blog/delete/:id",
         element: <DeleteBlog />,
       },
       {
-        path: "/admin/event/add",
+        path: "event/view",
         element: <AddEvent />,
       },
       {
-        path: "/admin/event/edit/:id",
+        path: "event/add",
+        element: <AddEvent />,
+      },
+      {
+        path: "event/edit/:id",
         element: <EditEvent />,
       },
       {
-        path: "/admin/event/delete/:id",
+        path: "event/delete/:id",
         element: <DeleteEvent />,
       },
       {
-        path: "/admin/faq/add",
+        path: "faq/view",
         element: <AddFaq />,
       },
       {
-        path: "/admin/faq/edit/:id",
+        path: "faq/add",
+        element: <AddFaq />,
+      },
+      {
+        path: "faq/edit/:id",
         element: <EditFaq />,
       },
       {
-        path: "/admin/faq/delete/:id",
+        path: "faq/delete/:id",
         element: <DeleteFaq />,
       },
       {
-        path: "/admin/services/add",
+        path: "services/view",
         element: <AddService />,
       },
       {
-        path: "/admin/services/edit/:id",
+        path: "services/add",
         element: <AddService />,
       },
       {
-        path: "/admin/services/delete/:id",
+        path: "services/edit/:id",
+        element: <AddService />,
+      },
+      {
+        path: "services/delete/:id",
         element: <DeleteService />,
       },
       {
-        path: "/admin/user/delete/:id",
+        path: "sub-services/view",
+        element: <AddService />,
+      },
+      {
+        path: "sub-services/add",
+        element: <AddService />,
+      },
+      {
+        path: "sub-services/edit/:id",
+        element: <AddService />,
+      },
+      {
+        path: "sub-services/delete/:id",
+        element: <DeleteService />,
+      },
+      {
+        path: "packages/view",
+        element: <AddService />,
+      },
+      {
+        path: "packages/add",
+        element: <AddService />,
+      },
+      {
+        path: "packages/edit/:id",
+        element: <AddService />,
+      },
+      {
+        path: "packages/delete/:id",
+        element: <DeleteService />,
+      },
+      {
+        path: "feedback/view",
+        element: <AddService />,
+      },
+      {
+        path: "feedback/add",
+        element: <AddService />,
+      },
+      {
+        path: "feedback/edit/:id",
+        element: <AddService />,
+      },
+      {
+        path: "feedback/delete/:id",
+        element: <DeleteService />,
+      },
+      {
+        path: "review/view",
+        element: <AddService />,
+      },
+      {
+        path: "review/add",
+        element: <AddService />,
+      },
+      {
+        path: "review/edit/:id",
+        element: <AddService />,
+      },
+      {
+        path: "review/delete/:id",
+        element: <DeleteService />,
+      },
+      {
+        path: "user/delete/:id",
         element: <DeleteUser />,
       },
       {
-        path: "/admin/user/view",
+        path: "user/view",
         element: <AllUsers />,
       },
     ],
@@ -194,11 +274,11 @@ const MainRoutes = createBrowserRouter([
         element: <DeleteSuperAdmin />,
       },
       {
-        path: "/super-admin/admin/view",
+        path: "/super-adminview",
         element: <AllAdmins />,
       },
       {
-        path: "/super-admin/admin/delete/:id",
+        path: "/super-admindelete/:id",
         element: <DeleteAdmin />,
       },
     ],

@@ -29,9 +29,8 @@ const SignIn = () => {
 
   const onSubmit = async (data) => {
     const res = await userLogin(data);
+    setLoading(true);
     try {
-      setLoading(true);
-
       if (res.data.statusCode === 200) {
         const { accessToken, role } = res.data.data;
 
@@ -48,7 +47,6 @@ const SignIn = () => {
         }
 
         setLoading(false);
-
       }
 
     } catch (error) {

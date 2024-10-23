@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ADMIN } from "../constants/common/user-constant";
 import { Navigate, Outlet } from "react-router-dom";
 import SuperAdminSidebarItems from "../constants/layout-item/SuperAdminSidebarItems";
+import { AdminSidebarItems } from "../constants/layout-item/AdminSidebarItems";
 
 
 const { Sider, Content } = Layout;
@@ -67,7 +68,7 @@ const AdminLayout = () => {
               theme="dark"
               defaultSelectedKeys={["profile"]}
               mode="inline"
-              items={SuperAdminSidebarItems(role)}
+              items={AdminSidebarItems(role)}
             />
           </Sider>
         </Layout>

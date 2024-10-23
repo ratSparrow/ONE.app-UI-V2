@@ -19,18 +19,25 @@ export const AdminSidebarItems = () => {
       icon: <UserOutlined />,
     },
     {
-      label: "Users",
-      key: "users",
+      label: "User",
+      key: "user",
       icon: <UsergroupAddOutlined />,
       children: [
         {
-          label: <Link href="/users/view-user">View </Link>,
+          label: <Link to="user/view">View </Link>,
           key: "view user",
           icon: <UserOutlined />,
         },
+      ],
+    },
+    {
+      label: "Admin",
+      key: "admin",
+      icon: <UsergroupAddOutlined />,
+      children: [
         {
-          label: <Link href="/users/update-user">Update </Link>,
-          key: "update user",
+          label: <Link to="/admin">View </Link>,
+          key: "view user",
           icon: <UserOutlined />,
         },
       ],
@@ -41,30 +48,48 @@ export const AdminSidebarItems = () => {
       icon: <UnorderedListOutlined />,
       children: [
         {
-          label: <Link href="/services/view-service">View </Link>,
+          label: <Link to="services/view">View </Link>,
           key: "view service",
           icon: <StockOutlined />,
         },
         {
-          label: <Link href="/services/update-service">Update </Link>,
-          key: "update service",
+          label: <Link to="services/add">Add </Link>,
+          key: "add service",
+          icon: <StockOutlined />,
+        },
+
+      ],
+    },
+    {
+      label: "Sub Services",
+      key: "sub-services",
+      icon: <UnorderedListOutlined />,
+      children: [
+        {
+          label: <Link to="sub-services/view">View </Link>,
+          key: "view sub-services",
+          icon: <StockOutlined />,
+        },
+        {
+          label: <Link to="sub-services/add">Add </Link>,
+          key: "add sub-services",
           icon: <StockOutlined />,
         },
       ],
     },
     {
-      label: "Sub Category",
-      key: "sub-category",
+      label: "Packages",
+      key: "packages",
       icon: <UnorderedListOutlined />,
       children: [
         {
-          label: <Link href="/sub-category/view">View </Link>,
-          key: "view sub-category",
+          label: <Link to="packages/view">View </Link>,
+          key: "view packages",
           icon: <StockOutlined />,
         },
         {
-          label: <Link href="/sub-category/update">Update </Link>,
-          key: "update sub-category",
+          label: <Link to="packages/add">Add </Link>,
+          key: "add packages",
           icon: <StockOutlined />,
         },
       ],
@@ -75,13 +100,13 @@ export const AdminSidebarItems = () => {
       icon: <ExportOutlined />,
       children: [
         {
-          label: <Link href="/faq/view-faq">View </Link>,
+          label: <Link to="faq/view">View </Link>,
           key: "view faq",
           icon: <QuestionCircleOutlined />,
         },
         {
-          label: <Link href="/faq/update-faq">Update</Link>,
-          key: "update faq",
+          label: <Link to="faq/add">Add</Link>,
+          key: "add faq",
           icon: <QuestionCircleOutlined />,
         },
       ],
@@ -92,13 +117,13 @@ export const AdminSidebarItems = () => {
       icon: <DeploymentUnitOutlined />,
       children: [
         {
-          label: <Link href="/blog/view-blog">View </Link>,
+          label: <Link to="blog/view">View </Link>,
           key: "view blog",
           icon: <ContainerOutlined />,
         },
         {
-          label: <Link href="/blog/update-blog">Update </Link>,
-          key: "update blog",
+          label: <Link to="blog/add">Add </Link>,
+          key: "add blog",
           icon: <ContainerOutlined />,
         },
       ],
@@ -109,13 +134,13 @@ export const AdminSidebarItems = () => {
       icon: <DeploymentUnitOutlined />,
       children: [
         {
-          label: <Link href="/events/view-events">View </Link>,
+          label: <Link to="event/view">View </Link>,
           key: "view events",
           icon: <ContainerOutlined />,
         },
         {
-          label: <Link href="/events/update-events">Update </Link>,
-          key: "update events",
+          label: <Link to="event/add">Add </Link>,
+          key: "add events",
           icon: <ContainerOutlined />,
         },
       ],
@@ -126,17 +151,52 @@ export const AdminSidebarItems = () => {
       icon: <DeploymentUnitOutlined />,
       children: [
         {
-          label: <Link href="/upcoming-service/view">View </Link>,
+          label: <Link to="/upcoming-service/view">View </Link>,
           key: "view upcoming service",
           icon: <ContainerOutlined />,
         },
         {
-          label: <Link href="/upcoming-service/update">Update </Link>,
+          label: <Link to="/upcoming-service/update">Update </Link>,
           key: "update upcoming service",
           icon: <ContainerOutlined />,
         },
       ],
     },
+    {
+      label: "Feedback",
+      key: "feedback",
+      icon: <DeploymentUnitOutlined />,
+      children: [
+        {
+          label: <Link to="feedback/view">View </Link>,
+          key: "feedback service",
+          icon: <ContainerOutlined />,
+        },
+        {
+          label: <Link to="feedback/add">Add </Link>,
+          key: "feedback",
+          icon: <ContainerOutlined />,
+        },
+      ],
+    },
+    {
+      label: "Review",
+      key: "review",
+      icon: <DeploymentUnitOutlined />,
+      children: [
+        {
+          label: <Link to="review/view">View </Link>,
+          key: "review",
+          icon: <ContainerOutlined />,
+        },
+        {
+          label: <Link to="review/add">Add </Link>,
+          key: "review",
+          icon: <ContainerOutlined />,
+        },
+      ],
+    },
+
   ];
   return defaultSidebarItems;
 };

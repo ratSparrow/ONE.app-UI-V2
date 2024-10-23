@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { authKey, role } from "../../constants/common/authKey";
-import { ExportOutlined, UserOutlined } from "@ant-design/icons";
+import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import "../../pages/css/Header.css"
 
 import {
   getUserInfo,
@@ -10,22 +11,23 @@ import {
 import { Avatar, Button } from "antd";
 import logo from "../../assets/logo/logo1.png"
 import { getFromLocalStorage } from "../../helpers/utils/saveData";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 const Header = () => {
-  const [token,setToken] = useState('')
-  useEffect(()=>{
-    const token = getFromLocalStorage()
-    setToken(token)
-  },[token])
+  const token = getFromLocalStorage(authKey)
+  const [isClicked, setIsClicked] = useState(false);
+
   const loggedInUser = getUserInfo();
   const navigate = useNavigate();
-  console.log("token",token)
+  console.log("token", token)
 
   // console.log(loggedInUser);
   const handleLogout = () => {
-    removeUserInfo(authKey);
-    removeUserRoleInfo(role);
+    setTimeout(() => {
+      removeUserInfo(authKey);
+      removeUserRoleInfo(role);
+      sessionStorage.clear();
+    }, 600);
     navigate("/sign-in");
   };
   return (
@@ -36,7 +38,7 @@ const Header = () => {
           justifyContent: "space-between",
           alignItems: "center",
           flexDirection: "row",
-          height: "49px",
+          height: "40px",
           width: "100%",
           margin: "0 auto",
           maxWidth: "1100px",
@@ -44,7 +46,7 @@ const Header = () => {
       >
         <div>
           <Link to="/">
-            <img style={{width:"75px"}} src={logo} alt="" />
+            <img style={{ width: "61px" }} src={logo} alt="" />
           </Link>
         </div>
         <div
@@ -58,14 +60,17 @@ const Header = () => {
             style={{ fontSize: 16, color: "white", paddingRight: "8px" }}
             to="/services"
           >
-            All Services
+            Services
           </Link>
           {loggedInUser ? (
             <div style={{ paddingRight: "8px" }}>
-              <Button onClick={() => handleLogout()} danger type="text">
-                <span style={{ marginRight: "8px" }}>
-                  <ExportOutlined />
-                </span>{" "}
+              <Button
+                type="primary"
+                danger
+                icon={<LogoutOutlined />}
+                onClick={handleLogout}
+                className={`logout-button ${isClicked ? 'fade-out' : ''}`}
+              >
                 Logout
               </Button>
             </div>
@@ -88,16 +93,16 @@ const Header = () => {
           )}
           {
             token && <div>
-            {loggedInUser === "user" ? (
-              <Link to="/user-profile">
-                <Avatar size="large" icon={<UserOutlined />} />
-              </Link>
-            ) : (
-              <Link to="/admin">
-                <Avatar size="large" icon={<UserOutlined />} />
-              </Link>
-            )}
-          </div>
+              {loggedInUser === "user" ? (
+                <Link to="/user-profile">
+                  <Avatar size="large" icon={<UserOutlined />} />
+                </Link>
+              ) : (
+                <Link to="/admin">
+                  <Avatar size="large" icon={<UserOutlined />} />
+                </Link>
+              )}
+            </div>
           }
         </div>
       </div>

@@ -1,0 +1,11 @@
+/* Fade-out animation for the logout button */
+.logout-button {
+    transition: all 0.6s ease;
+  }
+  
+  .logout-button.fade-out {
+    opacity: 0;
+    transform: scale(0.9); /* Optional scaling effect */
+    pointer-events: none; /* Disable the button after clicking */
+  }
+  
