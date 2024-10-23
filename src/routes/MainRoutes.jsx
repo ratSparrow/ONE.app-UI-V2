@@ -45,6 +45,8 @@ import UserProfile from "../pages/users/User";
 import EditAdmin from "../pages/admin/EditAdmin";
 import AdminProfile from "../pages/admin/Admin";
 import ViewServices from "../pages/services/ViewServices";
+import ViewSubCategory from "../pages/sub-category/ViewSubCategory";
+import AddSubCategory from "../pages/sub-category/AddSubCategory";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -188,11 +190,11 @@ const MainRoutes = createBrowserRouter([
       },
       {
         path: "sub-services/view",
-        element: <AddService />,
+        element: <ViewSubCategory />,
       },
       {
         path: "sub-services/add",
-        element: <AddService />,
+        element: <AddSubCategory />,
       },
       {
         path: "sub-services/edit/:id",

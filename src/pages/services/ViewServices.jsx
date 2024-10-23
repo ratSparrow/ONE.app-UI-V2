@@ -1,8 +1,9 @@
-import { Breadcrumb, Button, Spin, Table } from "antd";
+import { Breadcrumb, Button, Table } from "antd";
 import { useGetAllServicesQuery } from "../../redux/slice/api/servicesApi";
 import { Link } from "react-router-dom";
 import { HomeOutlined } from "@ant-design/icons";
 import { ServiceTableItem } from "../../constants/services/ServiceTableItem";
+import Loading from "../../ui/common/Loading";
 
 const ViewServices = () => {
   const { data, isLoading } = useGetAllServicesQuery();
@@ -34,21 +35,12 @@ const ViewServices = () => {
         </Button>
       </div>
 
-      {isLoading && (
-        <Spin
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-          }}
-        />
-      )}
-      <Table
+      {isLoading === true ? <Loading /> : <Table
         style={{ maxWidth: 800, margin: "0 auto" }}
         columns={ServiceTableItem()}
         dataSource={data?.data}
-      />
+      />}
+
     </div>
   );
 };

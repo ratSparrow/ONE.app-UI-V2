@@ -25,4 +25,58 @@
     color: #1890ff;
     font-weight: bold;
   }
+  /* Style the table container */
+.table-container {
+  margin: 32px;
+  font-family: 'Arial', sans-serif;
+}
+
+.table-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Style the table */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Table headers */
+.custom-table th {
+  background-color: #1677FF;
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 16px;
   
+}
+
+/* Table data cells */
+.custom-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Striped rows */
+.custom-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Hover effect for rows */
+.custom-table tr:hover {
+  background-color: #f1f1f1;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .custom-table th, .custom-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
