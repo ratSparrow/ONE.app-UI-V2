@@ -57,13 +57,13 @@ const Header = () => {
           }}
         >
           <Link
-            style={{ fontSize: 16, color: "white", paddingRight: "8px" }}
+            style={{ fontSize: 16, color: "white", paddingRight: "16px" }}
             to="/services"
           >
             Services
           </Link>
           {loggedInUser ? (
-            <div style={{ paddingRight: "8px" }}>
+            <div style={{ paddingRight: "16px" }}>
               <Button
                 type="primary"
                 danger
@@ -78,13 +78,13 @@ const Header = () => {
             <>
               {" "}
               <Link
-                style={{ fontSize: 16, color: "white", paddingRight: "8px" }}
+                style={{ fontSize: 16, color: "white", paddingRight: "16px" }}
                 to="/sign-up"
               >
                 Sign Up
               </Link>
               <Link
-                style={{ fontSize: 16, color: "white", paddingRight: "8px" }}
+                style={{ fontSize: 16, color: "white", paddingRight: "16px" }}
                 to="/sign-in"
               >
                 Sign In
