@@ -64,7 +64,7 @@ const ViewOrder = () => {
                                     <tr key={record._id}>
                                         <td>{index + 1}</td>
                                         <td>{record.user} </td>
-                                        <td>{record.order.name}</td>
+                                        <td>{record.order?.name}</td>
                                         <td>{record.phone}</td>
                                         <td>{record.slot}</td>
                                         <td>
