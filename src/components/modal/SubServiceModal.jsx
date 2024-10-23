@@ -9,6 +9,8 @@ const SubServiceModal = ({
   packages,
   handleAddToCart,
 }) => {
+
+  console.log(packages.data)
   return (
     <Modal
       title=<div
@@ -145,9 +147,8 @@ const SubServiceModal = ({
                       size="small"
                       type="primary"
                     >
-                      <Link style={{}} onClick={() => handleAddToCart(item)}>
-                        {" "}
-                        <span>Add</span>{" "}
+                      <Link  to={`/checkout/${item._id}`}>
+                        <span>Add</span>
                       </Link>
                     </Button>
                   </div>

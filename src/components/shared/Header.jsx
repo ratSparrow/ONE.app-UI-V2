@@ -19,7 +19,7 @@ const Header = () => {
 
   const loggedInUser = getUserInfo();
   const navigate = useNavigate();
-  console.log("token", token)
+  // console.log("token", token)
 
   // console.log(loggedInUser);
   const handleLogout = () => {
