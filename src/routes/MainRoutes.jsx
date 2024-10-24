@@ -56,6 +56,7 @@ import ViewEvents from "../pages/events/ViewEvents";
 import ViewUpcomingService from "../pages/upcoming-service/ViewUpcomingService";
 import AddUpcomingService from "../pages/upcoming-service/AddUpcomingService";
 import ViewFeedback from "../pages/feedback/ViewFeedback";
+import ViewReview from "../pages/review/ViewReview";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -259,7 +260,7 @@ const MainRoutes = createBrowserRouter([
       },
       {
         path: "review/view",
-        element: <AddService />,
+        element: <ViewReview />,
       },
       {
         path: "review/add",

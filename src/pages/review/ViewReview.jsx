@@ -1,16 +1,18 @@
+import React from 'react'
+
 import { Avatar, Breadcrumb, Button, Table, Typography } from "antd";
 
 import { Link } from "react-router-dom";
-import { HomeOutlined, UserOutlined } from "@ant-design/icons";
+import { HomeOutlined,  } from "@ant-design/icons";
+import Loading from '../../ui/common/Loading';
+import { useGetReviewQuery } from '../../redux/slice/api/reviewApi';
 
-import Loading from "../../ui/common/Loading";
-import { useGetAllUpcomingServiceQuery } from "../../redux/slice/api/upcomingServiceApi";
+
 const { Title } = Typography;
 
-const ViewUpcomingService = () => {
-  const { data, isLoading } = useGetAllUpcomingServiceQuery();
-  console.log(data)
-
+const ViewReview = () => {
+    const {data,isLoading}= useGetReviewQuery()
+    console.log(data)
   return (
     <div style={{ margin: 32 }}>
       <div style={{ margin: 32 }}>
@@ -27,16 +29,14 @@ const ViewUpcomingService = () => {
               title: <Link to="/admin">Admin</Link>,
             },
             {
-              title: <Link to="/upcoming-service/view">View Upcoming Services</Link>,
+              title: <Link to="/faq/view">View Review</Link>,
             },
-            {
-              title: <Link to="/upcoming-services/add">Add Upcoming Service</Link>,
-            },
+
           ]}
         />
       </div>
       <Title level={3} style={{ margin: 32 }}>
-        Upcoming Service Management
+        Review Management
       </Title>
       {
         isLoading === true ?
@@ -46,8 +46,8 @@ const ViewUpcomingService = () => {
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Photo</th>
-                  <th>Name</th>
+                  <th>Query</th>
+                  <th>Reply</th>
                   <th>Created At</th>
                   <th>Action</th>
 
@@ -57,13 +57,9 @@ const ViewUpcomingService = () => {
                 {data?.data.map((record, i) => (
                   <tr key={record._id}>
                     <td>{i + 1}</td>
-                    <td>
-                      {
-                        record.image ?
-                          <img style={{ width: "60px", height: "60px", borderRadius: "30px" }} src={record.image} alt="" /> :
-                          <Avatar size="small" icon={<UserOutlined />} />}
-                    </td>
-                    <td>{record.name}</td>
+                    
+                    <td>{record.query}</td>
+                    <td>{record.reply}</td>
                     <td>{record.createdAt.slice(0, 10)} </td>
                     <td>
                       <Button type='link' style={{ marginRight: 10 }}><Link to="">Edit</Link> </Button>
@@ -77,7 +73,7 @@ const ViewUpcomingService = () => {
           </div>
       }
     </div>
-  );
-};
+  )
+}
 
-export default ViewUpcomingService;
+export default ViewReview

@@ -186,11 +186,7 @@ export const AdminSidebarItems = () => {
           key: "review",
           icon: <ContainerOutlined />,
         },
-        {
-          label: <Link to="review/add">Add </Link>,
-          key: "review",
-          icon: <ContainerOutlined />,
-        },
+        
       ],
     },
 
