@@ -50,6 +50,7 @@ import AddSubCategory from "../pages/sub-category/AddSubCategory";
 import ViewOrder from "../pages/order/ViewOrder";
 import EditOrder from "../pages/order/EditOrder";
 import DeleteOrder from "../pages/order/DeleteOrder";
+import ViewFaq from "../pages/faq/ViewFaq";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -173,7 +174,7 @@ const MainRoutes = createBrowserRouter([
       },
       {
         path: "faq/view",
-        element: <AddFaq />,
+        element: <ViewFaq />,
       },
       {
         path: "faq/add",
