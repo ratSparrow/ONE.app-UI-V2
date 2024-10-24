@@ -157,7 +157,7 @@ export const AdminSidebarItems = () => {
           icon: <ContainerOutlined />,
         },
         {
-          label: <Link to="/upcoming-service/update">Update </Link>,
+          label: <Link to="/upcoming-service/add">Add </Link>,
           key: "update upcoming service",
           icon: <ContainerOutlined />,
         },
@@ -173,11 +173,7 @@ export const AdminSidebarItems = () => {
           key: "feedback service",
           icon: <ContainerOutlined />,
         },
-        {
-          label: <Link to="feedback/add">Add </Link>,
-          key: "feedback",
-          icon: <ContainerOutlined />,
-        },
+        
       ],
     },
     {

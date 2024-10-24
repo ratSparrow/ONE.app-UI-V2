@@ -53,6 +53,9 @@ import DeleteOrder from "../pages/order/DeleteOrder";
 import ViewFaq from "../pages/faq/ViewFaq";
 import ViewBlogs from "../pages/blogs/ViewBlogs";
 import ViewEvents from "../pages/events/ViewEvents";
+import ViewUpcomingService from "../pages/upcoming-service/ViewUpcomingService";
+import AddUpcomingService from "../pages/upcoming-service/AddUpcomingService";
+import ViewFeedback from "../pages/feedback/ViewFeedback";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -239,7 +242,7 @@ const MainRoutes = createBrowserRouter([
         element: <DeleteService />,
       },
       {
-        path: "feedback/view",
+        path: "feedback/all",
         element: <AddService />,
       },
       {
@@ -277,6 +280,18 @@ const MainRoutes = createBrowserRouter([
       {
         path: "user/view",
         element: <AllUsers />,
+      },
+      {
+        path: "upcoming-service/view",
+        element: <ViewUpcomingService />,
+      },
+      {
+        path: "upcoming-service/add",
+        element: <AddUpcomingService />,
+      },
+      {
+        path: "feedback/view",
+        element: <ViewFeedback />,
       },
     ],
   },

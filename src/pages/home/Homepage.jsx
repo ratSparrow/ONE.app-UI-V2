@@ -10,7 +10,7 @@ import AllSubServices from "../../components/home/sub-services/AllSubService";
 import ChooseUs from "../static/ChooseUs";
 import AllEvents from "../events/AllEvents";
 import CallUs from "../static/CallUs";
-import UpcomingService from "../../components/home/upcoming-service/UpcomingService";
+import UpcomingService from "../upcoming-service/UpcomingService";
 import AllBlogs from "../blogs/AllBlogs";
 import Feedback from "../../components/home/feedback/Feedback";
 import ServiceOrder from "../../components/home/static/ServiceOrder";

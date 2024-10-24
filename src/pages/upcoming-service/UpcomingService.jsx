@@ -1,5 +1,5 @@
 import { Card, Col, Row, Spin } from "antd";
-import { useGetAllUpcomingServiceQuery } from "../../../redux/slice/api/upcomingServiceApi";
+import { useGetAllUpcomingServiceQuery } from "../../redux/slice/api/upcomingServiceApi";
 import { Link } from "react-router-dom";
 
 const UpcomingService = () => {
