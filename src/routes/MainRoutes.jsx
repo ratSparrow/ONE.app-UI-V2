@@ -52,6 +52,7 @@ import EditOrder from "../pages/order/EditOrder";
 import DeleteOrder from "../pages/order/DeleteOrder";
 import ViewFaq from "../pages/faq/ViewFaq";
 import ViewBlogs from "../pages/blogs/ViewBlogs";
+import ViewEvents from "../pages/events/ViewEvents";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -80,7 +81,7 @@ const MainRoutes = createBrowserRouter([
         element: <BlogDetails />,
       },
       {
-        path: "/event/view",
+        path: "/event/all",
         element: <AllEvents />,
       },
       {
@@ -159,7 +160,7 @@ const MainRoutes = createBrowserRouter([
       },
       {
         path: "event/view",
-        element: <AddEvent />,
+        element: <ViewEvents />,
       },
       {
         path: "event/add",
