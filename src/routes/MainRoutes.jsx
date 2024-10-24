@@ -51,6 +51,7 @@ import ViewOrder from "../pages/order/ViewOrder";
 import EditOrder from "../pages/order/EditOrder";
 import DeleteOrder from "../pages/order/DeleteOrder";
 import ViewFaq from "../pages/faq/ViewFaq";
+import ViewBlogs from "../pages/blogs/ViewBlogs";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -71,7 +72,7 @@ const MainRoutes = createBrowserRouter([
         element: <ChooseUs />,
       },
       {
-        path: "/blog/view",
+        path: "/blog/all",
         element: <AllBlogs />,
       },
       {
@@ -130,7 +131,7 @@ const MainRoutes = createBrowserRouter([
       },
       {
         path: "blog/view",
-        element: <AddNewBlog />,
+        element: <ViewBlogs />,
       },
       {
         path: "blog/add",
