@@ -37,7 +37,7 @@ const AllBlogs = () => {
           <Row gutter={16}>
             {blogs?.map((item) => (
               <Col key={item._id} xs={24} sm={8} md={8} lg={6}>
-                <Link to={`/blog/${item._id}`}>
+                <Link to={`/blog/details/${item._id}`}>
                   {" "}
                   <Card
                     key={item._id}

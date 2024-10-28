@@ -25,7 +25,14 @@ const blogApi = api.injectEndpoints({
       }),
       invalidatesTags: ["blog"],
     }),
+    getSingleBlog: builder.query({
+      query: ({ id }) => ({
+        url: `/api/v1/blog/${id}`,
+        method: "GET",
+      }),
+      invalidatesTags: ["blog"],
+    }),
   }),
 });
 
-export const { useAddBlogMutation, useGetAllBlogQuery } = blogApi;
+export const { useAddBlogMutation, useGetAllBlogQuery,useGetSingleBlogQuery } = blogApi;
