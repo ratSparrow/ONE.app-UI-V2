@@ -27,8 +27,8 @@ ONE.APP is a web-based home service application designed to connect users with r
 ## Technologies Used
 - **Frontend:** React, Redux Toolkit, Ant Design
 - **Backend:** Node.js, Express
-- **Database:** PostgreSQL
-- **Deployment:** [Your deployment method here, e.g., Heroku, Vercel, etc.]
+- **Database:** MongoDB
+- **Deployment:** Netlify
 
 ## Getting Started
 Follow the instructions below to set up and run the application locally.
