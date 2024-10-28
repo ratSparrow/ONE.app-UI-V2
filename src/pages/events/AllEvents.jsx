@@ -1,86 +1,78 @@
 /* eslint-disable react/prop-types */
-import { Card, Col, Row, Spin } from "antd";
+import React from "react";
+import { Layout, Row, Col, Card, Typography, Button } from "antd";
 import { useGetAllEventsQuery } from "../../redux/slice/api/eventApi";
 import { Link } from "react-router-dom";
+import Loading from "../../ui/common/Loading";
+
+
+const { Title, Text, Paragraph } = Typography;
+
+const events = [
+  {
+    title: "Home Maintenance Workshop",
+    date: "October 25, 2024",
+    description: "Join us for a workshop on essential home maintenance tips to keep your home in top condition.",
+    imageUrl: "https://example.com/event1.jpg",
+  },
+  {
+    title: "Discount Day on All Cleaning Services",
+    date: "November 1, 2024",
+    description: "Get 20% off on all cleaning services for one day only. Don’t miss out!",
+    imageUrl: "https://example.com/event2.jpg",
+  },
+  {
+    title: "Plumbing 101: Basics and Maintenance",
+    date: "November 10, 2024",
+    description: "A beginner’s guide to handling minor plumbing issues and when to call a professional.",
+    imageUrl: "https://example.com/event3.jpg",
+  },
+];
 
 const AllEvents = () => {
-  const { data, isLoading } = useGetAllEventsQuery();
+  const { data:events, isLoading } = useGetAllEventsQuery();
 
-  if (isLoading) {
-    return (
-      <Spin
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      />
-    );
-  }
-  // console.log(event);
+  console.log(events);
   return (
-    <div style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}>
-      <h1
-        style={{
-          fontSize: "24px",
-          color: "blueviolet",
-          margin: "16px 0",
-          paddingBottom: "16px",
-        }}
-      >
-        <span style={{ borderBottom: "2px solid blueviolet" }}>
-          Event We organised
-        </span>
-      </h1>
-      <Row gutter={16}>
-        {data?.data.map((item) => (
-          <Col key={item._id} xs={24} sm={8} md={8} lg={6}>
-            <Link to={`/event/details/${item._id}`}>
-              <Card
-                key={item._id}
-                hoverable
-                style={{
-                  width: "100%",
-                  minHeight: "40vh",
-                  marginBottom: "8px",
-                }}
-                cover={
-                  !item.image ? (
-                    <Spin />
-                  ) : (
-                    <img
-                      alt=""
-                      src={item.image}
-                      style={{ maxWidth: "400px", height: "170px" }}
-                    />
-                  )
-                }
-              >
-                <h4
-                  style={{
-                    padding: 4,
-                    fontWeight: 500,
-                    fontSize: 18,
-                  }}
-                >
-                  {item.name}
-                </h4>
-                <p
-                  style={{
-                    marginTop: 8,
-                    fontWeight: 400,
-                    fontSize: 16,
-                  }}
-                >
-                  {item.description}
-                </p>
-              </Card>
-            </Link>
+    <>
+      {
+        isLoading === true ? <Loading/> :
+        <Layout style={{  padding: "40px 0" }}>
+    <div style={{ maxWidth: "1200px", margin: "auto", padding: "0 20px" }}>
+      <Title level={2} style={{ textAlign: "center", marginBottom: "40px" }}>
+        Upcoming Events
+      </Title>
+
+      <Row gutter={[24, 24]}>
+        {events?.data.map((event, index) => (
+          <Col xs={24} sm={12} lg={8} key={index}>
+            <Card
+              hoverable
+              cover={
+                <img
+                  alt={event.name}
+                  src={event.image}
+                  style={{ height: "200px", objectFit: "cover" }}
+                />
+              }
+              style={{ borderRadius: "8px", height:"400px" }}
+            >
+              <Title level={4}>{event.name}</Title>
+              <Text type="secondary">{event.date}</Text>
+              <Paragraph ellipsis={{ rows: 2 }} style={{ margin: "10px 0" }}>
+                {event.description}
+              </Paragraph>
+              <Link to={`/event/details/${event._id}`}>
+              <Button type="link">Learn More</Button>
+              </Link>
+            </Card>
           </Col>
         ))}
       </Row>
     </div>
+  </Layout>
+      }
+    </>
   );
 };
 
