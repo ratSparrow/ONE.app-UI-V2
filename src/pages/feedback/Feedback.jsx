@@ -1,110 +1,62 @@
-import { Card, Col, Row, Spin } from "antd";
+import React from "react";
+import { Layout, Row, Col, Card, Typography, Avatar, Rate, Button } from "antd";
 import { useGetAllFeedbackQuery } from "../../redux/slice/api/feedbackApi";
+import Loading from "../../ui/common/Loading";
 import { Link } from "react-router-dom";
 
-const Feedback = () => {
-  const { data, isLoading } = useGetAllFeedbackQuery();
+const { Title, Paragraph, Text } = Typography;
 
-  const feedbacks = data?.data;
+
+const FeedbackSection = () => {
+  const { data:feedbacks, isLoading } = useGetAllFeedbackQuery();
+
+  console.log(feedbacks)
 
   return (
-    <>
-      {isLoading ? (
-        <Spin
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-          }}
-        />
-      ) : (
-        <div
-          style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}
-        >
-          <h1
-            style={{
-              fontSize: "24px",
-              color: "blueviolet",
-              margin: "16px 0",
-              paddingBottom: "16px",
-            }}
-          >
-            <span style={{ borderBottom: "2px solid blueviolet" }}>
-              From Our Client
-            </span>
-          </h1>
-          <Row gutter={16}>
-            {feedbacks?.map((item) => (
-              <Col key={item._id} xs={24} sm={8} md={8} lg={6}>
-                <Link to={`/feedback/details/${item._id}`}>
-                  {" "}
-                  <Card
-                    key={item._id}
-                    hoverable
-                    style={{
-                      width: "100%",
+  <>
+    {
+      isLoading === true ? <Loading/>:
+      <Layout style={{  padding: "40px 0" }}>
+      <div style={{ maxWidth: "1200px", margin: "auto", padding: "0 20px" }}>
+        <Title level={2} style={{ textAlign: "center", marginBottom: "40px" }}>
+          Customer Feedback
+        </Title>
+  
+        <Row gutter={[24, 24]}>
+          {feedbacks?.data.map((feedback, index) => (
+            <Col xs={24} sm={12} lg={8} key={index}>
+              <Card
+                hoverable
+                style={{
+                  borderRadius: "8px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  height: "100%",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", marginBottom: "15px" }}>
+                  <Avatar src={feedback.profileImg} size={50} />
+                  <div style={{ marginLeft: "15px" }}>
+                    <Title level={4} style={{ marginBottom: 0 }}>{feedback.firstName} {feedback.lastName}</Title>
+                    <Rate disabled defaultValue={feedback.rating} style={{ fontSize: "14px" }} />
+                  </div>
+                </div>
+                <Paragraph ellipsis={{ rows: 3 }}>{feedback.comment}</Paragraph>
 
-                      minHeight: "40vh",
-                      marginBottom: "8px",
-                    }}
-                    cover={
-                      !item?.profileImg ? (
-                        <Spin />
-                      ) : (
-                        <img
-                          alt=""
-                          src={item.profileImg}
-                          style={{ maxWidth: "400px", height: "170px" }}
-                        />
-                      )
-                    }
-                  >
-                    <h4
-                      style={{
-                        padding: 4,
-                        fontWeight: 500,
-                        fontSize: 18,
-                      }}
-                    >
-                      {item.blogTitle}
-                    </h4>
-                    <h6
-                      style={{
-                        padding: 4,
-                        fontWeight: 500,
-                        fontSize: 18,
-                      }}
-                    >
-                      {item.firstName} {item.lastName}
-                    </h6>
-                    <h6
-                      style={{
-                        padding: 4,
-                        fontWeight: 500,
-                        fontSize: 16,
-                      }}
-                    >
-                      {item.location}
-                    </h6>
-                    <p
-                      style={{
-                        marginTop: 8,
-                        fontWeight: 400,
-                        fontSize: 16,
-                      }}
-                    >
-                      {item.comment}
-                    </p>
-                  </Card>
-                </Link>
-              </Col>
-            ))}
-          </Row>
-        </div>
-      )}
-    </>
+                <Button type="link">
+                  <Link to={`/feedback/details/${feedback._id}`}>Read More</Link>
+                </Button>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </div>
+    </Layout>
+    }
+  
+  </>
   );
-};
+}
 
-export default Feedback;
+export default FeedbackSection;
