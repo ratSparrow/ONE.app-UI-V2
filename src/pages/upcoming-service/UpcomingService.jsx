@@ -1,12 +1,18 @@
-import { Card, Col, Row, Spin } from "antd";
+import React from "react";
+import { Layout, Row, Col, Card, Typography, Button } from "antd";
 import { useGetAllUpcomingServiceQuery } from "../../redux/slice/api/upcomingServiceApi";
 import { Link } from "react-router-dom";
+
+const { Title, Text, Paragraph } = Typography;
+
+
+
 
 const UpcomingService = () => {
   const { data, isLoading } = useGetAllUpcomingServiceQuery();
 
   const upcomingServices = data?.data;
-  // console.log(upcomingServices);
+  console.log(upcomingServices);
   return (
     <>
       {isLoading ? (
@@ -19,70 +25,40 @@ const UpcomingService = () => {
           }}
         />
       ) : (
-        <div
-          style={{ maxWidth: "1200px", margin: "auto", padding: "44px 16px" }}
-        >
-          <h1
-            style={{
-              fontSize: "24px",
-              color: "blueviolet",
-              margin: "16px 0",
-              paddingBottom: "16px",
-            }}
-          >
-            <span style={{ borderBottom: "2px solid blueviolet" }}>
-              Upcoming Services
-            </span>
-          </h1>
-          <Row gutter={16}>
-            {upcomingServices?.map((item) => (
-              <Col key={item._id} xs={24} sm={8} md={8} lg={6}>
-                <Link to={`upcoming-service/details/${item._id}`}>
-                  <Card
-                    key={item._id}
-                    hoverable
-                    style={{
-                      width: "100%",
+        <Layout style={{ padding: "40px 0" }}>
+    <div style={{ maxWidth: "1200px", margin: "auto", padding: "0 20px" }}>
+      <Title level={2} style={{ textAlign: "center", marginBottom: "40px" }}>
+        Upcoming Services
+      </Title>
 
-                      minHeight: "40vh",
-                      marginBottom: "8px",
-                    }}
-                    cover={
-                      !item?.image ? (
-                        <Spin />
-                      ) : (
-                        <img
-                          alt=""
-                          src={item.image}
-                          style={{ maxWidth: "400px", height: "170px" }}
-                        />
-                      )
-                    }
-                  >
-                    <h4
-                      style={{
-                        padding: 4,
-                        fontWeight: 500,
-                        fontSize: 18,
-                      }}
-                    >
-                      {item.name}
-                    </h4>
-                    <p
-                      style={{
-                        marginTop: 8,
-                        fontWeight: 400,
-                        fontSize: 16,
-                      }}
-                    >
-                      {item.description}
-                    </p>
-                  </Card>
-                </Link>
-              </Col>
-            ))}
-          </Row>
-        </div>
+      <Row gutter={[24, 24]}>
+        {upcomingServices.map((service, index) => (
+          <Col xs={24} sm={12} lg={8} key={index}>
+            <Card
+              hoverable
+              cover={
+                <img
+                  alt={service.name}
+                  src={service.image}
+                  style={{ height: "200px", objectFit: "cover" }}
+                />
+              }
+              style={{ borderRadius: "8px", height:"400px" }}
+            >
+              <Title level={4}>{service.name}</Title>
+              <Text type="secondary">Launching on: {service.createdAt.slice(0, 10)}</Text>
+              <Paragraph ellipsis={{ rows: 2 }} style={{ margin: "10px 0" }}>
+                {service.description}
+              </Paragraph>
+             <Link to={`/upcoming-service/details/${service._id}`}>
+             <Button type="link" style={{ alignSelf: "flex-end", marginTop: "auto" }}>Learn More</Button>
+             </Link>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </div>
+  </Layout>
       )}
     </>
   );

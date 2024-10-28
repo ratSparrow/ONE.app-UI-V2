@@ -71,7 +71,7 @@ const AllBlogs = () => {
                 {post.blogDescription}
               </Paragraph>
              <Link to={`/blog/details/${post._id}`}>
-             <Button type="link">Read More</Button>
+             <Button type="link" style={{ alignSelf: "flex-end", marginTop: "auto" }}>Read More</Button>
              </Link>
             </Card>
           </Col>

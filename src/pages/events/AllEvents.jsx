@@ -30,47 +30,47 @@ const events = [
 ];
 
 const AllEvents = () => {
-  const { data:events, isLoading } = useGetAllEventsQuery();
+  const { data: events, isLoading } = useGetAllEventsQuery();
 
   console.log(events);
   return (
     <>
       {
-        isLoading === true ? <Loading/> :
-        <Layout style={{  padding: "40px 0" }}>
-    <div style={{ maxWidth: "1200px", margin: "auto", padding: "0 20px" }}>
-      <Title level={2} style={{ textAlign: "center", marginBottom: "40px" }}>
-        Upcoming Events
-      </Title>
+        isLoading === true ? <Loading /> :
+          <Layout style={{ padding: "40px 0" }}>
+            <div style={{ maxWidth: "1200px", margin: "auto", padding: "0 20px" }}>
+              <Title level={2} style={{ textAlign: "center", marginBottom: "40px" }}>
+                Upcoming Events
+              </Title>
 
-      <Row gutter={[24, 24]}>
-        {events?.data.map((event, index) => (
-          <Col xs={24} sm={12} lg={8} key={index}>
-            <Card
-              hoverable
-              cover={
-                <img
-                  alt={event.name}
-                  src={event.image}
-                  style={{ height: "200px", objectFit: "cover" }}
-                />
-              }
-              style={{ borderRadius: "8px", height:"400px" }}
-            >
-              <Title level={4}>{event.name}</Title>
-              <Text type="secondary">{event.date}</Text>
-              <Paragraph ellipsis={{ rows: 2 }} style={{ margin: "10px 0" }}>
-                {event.description}
-              </Paragraph>
-              <Link to={`/event/details/${event._id}`}>
-              <Button type="link">Learn More</Button>
-              </Link>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </div>
-  </Layout>
+              <Row gutter={[24, 24]}>
+                {events?.data.map((event, index) => (
+                  <Col xs={24} sm={12} lg={8} key={index}>
+                    <Card
+                      hoverable
+                      cover={
+                        <img
+                          alt={event.name}
+                          src={event.image}
+                          style={{ height: "200px", objectFit: "cover" }}
+                        />
+                      }
+                      style={{ borderRadius: "8px", height: "400px" }}
+                    >
+                      <Title level={4}>{event.name}</Title>
+                      <Text type="secondary">{event.date}</Text>
+                      <Paragraph ellipsis={{ rows: 2 }} style={{ margin: "10px 0" }}>
+                        {event.description}
+                      </Paragraph>
+                      <Link to={`/event/details/${event._id}`}>
+                        <Button type="link">Learn More</Button>
+                      </Link>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </div>
+          </Layout>
       }
     </>
   );
