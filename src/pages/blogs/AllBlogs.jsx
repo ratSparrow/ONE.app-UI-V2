@@ -33,7 +33,7 @@ const AllBlogs = () => {
   const blogs = data?.data;
   console.log("blogs", blogs);
   return (
-    <>
+    <div id="#blog">
       {isLoading ? (
         <Spin
           style={{
@@ -80,7 +80,7 @@ const AllBlogs = () => {
     </div>
   </Layout>
       )}
-    </>
+    </div >
   );
 };
 

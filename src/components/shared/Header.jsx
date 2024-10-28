@@ -31,7 +31,7 @@ const Header = () => {
     navigate("/sign-in");
   };
   return (
-    <div style={{ backgroundColor: "#7E45EF" }}>
+    <div style={{ backgroundColor: "/7E45EF" }}>
       <div
         style={{
           display: "flex",
@@ -56,6 +56,30 @@ const Header = () => {
             alignItems: "center",
           }}
         >
+          <Link
+            style={{ fontSize: 16, color: "white", paddingRight: "16px" }}
+            to="/blog/all"
+          >
+            Blog
+          </Link>
+          <Link
+            style={{ fontSize: 16, color: "white", paddingRight: "16px" }}
+            to="/new/all"
+          >
+            New
+          </Link>
+          <Link
+            style={{ fontSize: 16, color: "white", paddingRight: "16px" }}
+            to="/event/all"
+          >
+            Event
+          </Link>
+          <Link
+            style={{ fontSize: 16, color: "white", paddingRight: "16px" }}
+            to="/feedback/all"
+          >
+            Feedback
+          </Link>
           <Link
             style={{ fontSize: 16, color: "white", paddingRight: "16px" }}
             to="/services"

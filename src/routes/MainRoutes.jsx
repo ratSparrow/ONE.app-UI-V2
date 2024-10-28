@@ -59,6 +59,8 @@ import ViewFeedback from "../pages/feedback/ViewFeedback";
 import ViewReview from "../pages/review/ViewReview";
 import UpcomingServiceDetails from "../pages/upcoming-service/UpcomingServiceDetails";
 import FeedbackDetails from "../pages/feedback/FeedBackDetails";
+import FeedbackSection from "../pages/feedback/Feedback";
+import UpcomingService from "../pages/upcoming-service/UpcomingService";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -95,8 +97,16 @@ const MainRoutes = createBrowserRouter([
         element: <EventDetails />,
       },
       {
+        path: "/new/all",
+        element: <UpcomingService />,
+      },
+      {
         path: "/upcoming-service/details/:id",
         element: <UpcomingServiceDetails />,
+      },
+      {
+        path: "/feedback/all",
+        element: <FeedbackSection />,
       },
       {
         path: "/feedback/details/:id",
