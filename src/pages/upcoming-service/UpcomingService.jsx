@@ -37,7 +37,7 @@ const UpcomingService = () => {
           <Row gutter={16}>
             {upcomingServices?.map((item) => (
               <Col key={item._id} xs={24} sm={8} md={8} lg={6}>
-                <Link to={`/upcoming-service/${item._id}`}>
+                <Link to={`upcoming-service/details/${item._id}`}>
                   <Card
                     key={item._id}
                     hoverable
