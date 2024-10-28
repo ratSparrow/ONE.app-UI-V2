@@ -12,7 +12,7 @@ import AllEvents from "../events/AllEvents";
 import CallUs from "../static/CallUs";
 import UpcomingService from "../upcoming-service/UpcomingService";
 import AllBlogs from "../blogs/AllBlogs";
-import Feedback from "../../components/home/feedback/Feedback";
+import Feedback from "../feedback/Feedback";
 import ServiceOrder from "../../components/home/static/ServiceOrder";
 import HomeServiceModal from "../../components/home/sub-services/HomeServiceModal";
 import { useGetAllServicesQuery } from "../../redux/slice/api/servicesApi";

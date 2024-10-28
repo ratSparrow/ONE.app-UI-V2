@@ -1,5 +1,5 @@
 import { Card, Col, Row, Spin } from "antd";
-import { useGetAllFeedbackQuery } from "../../../redux/slice/api/feedbackApi";
+import { useGetAllFeedbackQuery } from "../../redux/slice/api/feedbackApi";
 import { Link } from "react-router-dom";
 
 const Feedback = () => {
@@ -37,7 +37,7 @@ const Feedback = () => {
           <Row gutter={16}>
             {feedbacks?.map((item) => (
               <Col key={item._id} xs={24} sm={8} md={8} lg={6}>
-                <Link to={`/blog/${item._id}`}>
+                <Link to={`/feedback/details/${item._id}`}>
                   {" "}
                   <Card
                     key={item._id}

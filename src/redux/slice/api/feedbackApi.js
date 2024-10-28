@@ -25,7 +25,15 @@ const feedbackApi = api.injectEndpoints({
       }),
       invalidatesTags: ["feedback"],
     }),
+    getSingleFeedback: builder.query({
+      query: ({ id }) => ({
+        url: `/api/v1/feedback/${id}`,
+        method: "GET",
+      }),
+      invalidatesTags: ["feedback"],
+    }),
+
   }),
 });
 
-export const { useAddFeedbackMutation, useGetAllFeedbackQuery } = feedbackApi;
+export const { useAddFeedbackMutation, useGetAllFeedbackQuery, useGetSingleFeedbackQuery } = feedbackApi;

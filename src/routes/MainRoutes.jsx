@@ -58,6 +58,7 @@ import AddUpcomingService from "../pages/upcoming-service/AddUpcomingService";
 import ViewFeedback from "../pages/feedback/ViewFeedback";
 import ViewReview from "../pages/review/ViewReview";
 import UpcomingServiceDetails from "../pages/upcoming-service/UpcomingServiceDetails";
+import FeedbackDetails from "../pages/feedback/FeedBackDetails";
 
 const MainRoutes = createBrowserRouter([
   {
@@ -96,6 +97,10 @@ const MainRoutes = createBrowserRouter([
       {
         path: "/upcoming-service/details/:id",
         element: <UpcomingServiceDetails />,
+      },
+      {
+        path: "/feedback/details/:id",
+        element: <FeedbackDetails />,
       },
       {
         path: "/faq",
