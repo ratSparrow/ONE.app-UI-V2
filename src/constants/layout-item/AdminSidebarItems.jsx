@@ -11,8 +11,18 @@ import {
 } from "@ant-design/icons";
 
 import { Link } from "react-router-dom";
+import { useGetUserProfileQuery } from "../../redux/slice/api/userApi";
+import { useEffect, useState } from "react";
 
 export const AdminSidebarItems = () => {
+  const [role,setRole] = useState('')
+  const { data, isLoading } = useGetUserProfileQuery();
+  useEffect(() => {
+    if (data?.data.role) {
+      setRole(data.data.role);
+    }
+  }, [data]);
+
   const defaultSidebarItems = [
     {
       label: <Link to="/admin">Account </Link>,
@@ -29,6 +39,11 @@ export const AdminSidebarItems = () => {
           key: "view user",
           icon: <UserOutlined />,
         },
+        ...(role === "super admin" ? [{
+          label: <Link to="user/add-admin">Add Admin </Link>,
+          key: "add admin",
+          icon: <UserOutlined />,
+        }] : []),
       ],
     },
     {
